@@ -5,8 +5,8 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
-from p006_converter import distribution, runtime_facts
-from p006_converter.upstream_contracts import ContractValidationError
+from converter import distribution, runtime_facts
+from converter.upstream_contracts import ContractValidationError
 
 
 class RuntimeFactsTests(unittest.TestCase):
@@ -33,8 +33,8 @@ class RuntimeFactsTests(unittest.TestCase):
             root = Path(folder)
             (root / "facts.json").write_bytes(body)
             with patch.object(distribution, "PUBLIC_RELEASE", True), patch.object(distribution, "RUNTIME_FACTS_SHA256", hashlib.sha256(body).hexdigest()):
-                with patch("p006_app.branding.application_version", return_value="2.2.63"):
+                with patch("app.branding.application_version", return_value="2.2.63"):
                     self.assertEqual(value, runtime_facts.load_facts(root))
-                with patch("p006_app.branding.application_version", return_value="2.2.62"):
+                with patch("app.branding.application_version", return_value="2.2.62"):
                     with self.assertRaises(ContractValidationError):
                         runtime_facts.load_facts(root)

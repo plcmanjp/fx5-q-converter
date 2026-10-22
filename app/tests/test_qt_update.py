@@ -5,8 +5,8 @@ from unittest.mock import patch
 
 from PySide6.QtWidgets import QApplication, QDialog, QHBoxLayout, QPushButton, QWidget
 
-from p006_app.qt_update import UpdateNotifier
-from p006_app.update_check import UpdateResult, parse_release
+from app.qt_update import UpdateNotifier
+from app.update_check import UpdateResult, parse_release
 from test_update_check import release_payload
 
 
@@ -113,7 +113,7 @@ class QtUpdateTests(unittest.TestCase):
         self.assertIsNone(self.notifier.dialog)
 
     def test_only_user_click_opens_trusted_page(self):
-        with patch("p006_app.qt_update.QDesktopServices.openUrl", return_value=True) as opened:
+        with patch("app.qt_update.QDesktopServices.openUrl", return_value=True) as opened:
             self.notifier.check()
             self.wait_idle()
             opened.assert_not_called()

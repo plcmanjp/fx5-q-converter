@@ -2,11 +2,13 @@
 
 Windows x64와 Python 3.12.13을 사용합니다. 새 checkout과 새 가상환경에서 다음 명령을 실행합니다.
 
+UI 패키지는 `app`, 변환 패키지는 `converter`입니다. Python import, 모듈 실행과 PyInstaller 리소스 경로는 이 이름을 사용합니다. 이전 파일의 JSON 스키마 식별자, 로컬 설정 저장소 키와 해시로 고정된 검증 리소스의 원문은 기존 설정과 근거의 호환성을 위해 유지합니다.
+
 ```powershell
 python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r app/packaging/requirements-qt.txt
 $env:PYTHONPATH = (Join-Path (Get-Location) 'app/src')
-.venv\Scripts\python.exe -B -m p006_app.qt_app
+.venv\Scripts\python.exe -B -m app.qt_app
 ```
 
 빌드는 Git에 커밋된 깨끗한 `app/` 소스를 요구합니다. 기존 `app/dist`가 있으면 덮어쓰지 않고 중단하므로 새 checkout에서 실행합니다.
