@@ -8,6 +8,10 @@
       "bytes": 57,
       "sha256": "577c51ec96697cc17c58726b1fe0a6b4ee19ba28309be388c8544dbd6d35b948"
     },
+    "AGENTS.md": {
+      "bytes": 1192,
+      "sha256": "7de6351616829db98f7d87d2d3c484f293ca9c83cfe822099a1d37eca096ada0"
+    },
     "BUILD.md": {
       "bytes": 2113,
       "sha256": "42ebd11e942d71dc426fd6bf084e8f9b1d09373e4e23a698019e4e83d96edd1c"
@@ -17,8 +21,8 @@
       "sha256": "7f480cc658b029e3d8f62115121093925bcdce2d33d9eeff5c0af76b57347492"
     },
     "README.md": {
-      "bytes": 3619,
-      "sha256": "a3ce121276f03814d7db77b0eab17f753a55d44453e4dccb1ab918c98c5d73e5"
+      "bytes": 3731,
+      "sha256": "1e520c5a55038b9511d617daf903ec10ec52ed5bfadd1ee08818a9e08a045392"
     },
     "THIRD_PARTY_NOTICES.md": {
       "bytes": 2230,
@@ -33,8 +37,8 @@
       "sha256": "7f480cc658b029e3d8f62115121093925bcdce2d33d9eeff5c0af76b57347492"
     },
     "app/README.md": {
-      "bytes": 3619,
-      "sha256": "a3ce121276f03814d7db77b0eab17f753a55d44453e4dccb1ab918c98c5d73e5"
+      "bytes": 3731,
+      "sha256": "1e520c5a55038b9511d617daf903ec10ec52ed5bfadd1ee08818a9e08a045392"
     },
     "app/THIRD_PARTY_NOTICES.md": {
       "bytes": 2230,
