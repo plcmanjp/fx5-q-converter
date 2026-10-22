@@ -1,0 +1,5 @@
+# Isolated Qt development/build environment. Existing Tk release pins stay unchanged.
+PySide6-Essentials==6.11.2
+shiboken6==6.11.2
+PyInstaller==6.21.0
+olefile==0.47

@@ -1,0 +1,2 @@
+# Preserve the exact bytes bound by the release and third-party manifests.
+* -text

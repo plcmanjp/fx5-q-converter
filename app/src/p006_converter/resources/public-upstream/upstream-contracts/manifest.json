@@ -1,0 +1,36 @@
+{
+  "manifest_schema": "plcman.p006.upstream-vendoring.v1",
+  "p006_adapter_version": "1.0.0",
+  "p006_base_commit": "5443beb01cc30f6827fd474ab4d147edc3525313",
+  "contracts": [
+    {
+      "kind": "source",
+      "local_path": "p002-fx5u-neutral-source-contract-1.1.9.zip",
+      "archive_prefix": "p002-fx5u-neutral-source-contract",
+      "upstream_project": "P002",
+      "bundle_name": "p002-fx5u-neutral-source-contract",
+      "bundle_version": "1.1.9",
+      "contract_schema": "plcman.p002.neutral-source-contract.v1",
+      "source_commit": "5443beb01cc30f6827fd474ab4d147edc3525313",
+      "source_worktree_dirty": false,
+      "source_worktree_porcelain": [],
+      "byte_count": 509343,
+      "sha256": "189f76d3d3e566227ab356f0e615a26fbd6a3ee008ee01d4f4172afb9c39a8b7"
+    },
+    {
+      "kind": "target",
+      "local_path": "p004-q06udv-target-contract-1.8.7.zip",
+      "archive_prefix": "p004-q06udv-target-contract",
+      "upstream_project": "P004",
+      "bundle_name": "p004-q06udv-target-contract",
+      "bundle_version": "1.8.7",
+      "contract_schema": "plcman.p004.q-target-contract.v1",
+      "source_commit": "5443beb01cc30f6827fd474ab4d147edc3525313",
+      "source_worktree_dirty": false,
+      "source_worktree_porcelain": [],
+      "byte_count": 20708675,
+      "sha256": "7e3803554be291269ea94c54bbbed2167621c96c88af20ec00740018e4f391a5"
+    }
+  ],
+  "p006_version": "2.1.2"
+}

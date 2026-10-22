@@ -1,0 +1,1511 @@
+{
+  "authority_manifest_sha256": "0e38f4c456dba4e5b83669471ec0a64c4b112cb0a595683319b283f0ce072104",
+  "finding_codes": [
+    "MINING_REQUIRED",
+    "SOURCE_GLOBAL_ORDER_NOT_SERIALIZED"
+  ],
+  "records": [
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "$+",
+      "identity": "$+",
+      "operand_count": [
+        2,
+        3
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D",
+            "D",
+            "D"
+          ],
+          [
+            "STRING",
+            "D"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-003"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "WSUM",
+      "identity": "WSUM",
+      "operand_count": [
+        3
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D",
+            "D",
+            "K"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-003"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "SUM",
+      "identity": "SUM",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "K4M",
+            "D"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-003"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "LEN",
+      "identity": "LEN",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D",
+            "D"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-003"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "LDD>=",
+      "identity": "LDD>=",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D",
+            "R"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-004"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "LDD<=",
+      "identity": "LDD<=",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D",
+            "R"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-004"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "ANDD>=",
+      "identity": "ANDD>=",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D",
+            "R"
+          ],
+          [
+            "K",
+            "D...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-004",
+        "P004-Q06UDV-BATCH-041"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "ANDD<=",
+      "identity": "ANDD<=",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D",
+            "R"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-004"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "AND=",
+      "identity": "AND=",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "K",
+            "U...\\G...Z"
+          ],
+          [
+            "K",
+            "D...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-042",
+        "P004-Q06UDV-BATCH-043"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "AND<>",
+      "identity": "AND<>",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "K",
+            "D...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-044"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "FOR",
+      "identity": "FOR",
+      "operand_count": [
+        1
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D"
+          ],
+          [
+            "K"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-005",
+        "P004-Q06UDV-BATCH-013"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "LD",
+      "identity": "LD",
+      "operand_count": [
+        1
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "M"
+          ],
+          [
+            "TnZ"
+          ],
+          [
+            "F"
+          ],
+          [
+            "M...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-005",
+        "P004-Q06UDV-BATCH-015",
+        "P004-Q06UDV-BATCH-020"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "LDI",
+      "identity": "LDI",
+      "operand_count": [
+        1
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "M...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-021"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "AND",
+      "identity": "AND",
+      "operand_count": [
+        1
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "TnZ"
+          ],
+          [
+            "B...Z"
+          ],
+          [
+            "M...Z"
+          ],
+          [
+            "L...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-005",
+        "P004-Q06UDV-BATCH-014",
+        "P004-Q06UDV-BATCH-022",
+        "P004-Q06UDV-BATCH-056"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "ANI",
+      "identity": "ANI",
+      "operand_count": [
+        1
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "M...Z"
+          ],
+          [
+            "B...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-023",
+        "P004-Q06UDV-BATCH-059"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "OR",
+      "identity": "OR",
+      "operand_count": [
+        1
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "B...Z"
+          ],
+          [
+            "M...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-018",
+        "P004-Q06UDV-BATCH-024"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "OUT",
+      "identity": "OUT",
+      "operand_count": [
+        1
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "M"
+          ],
+          [
+            "B...Z"
+          ],
+          [
+            "M...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-005",
+        "P004-Q06UDV-BATCH-019",
+        "P004-Q06UDV-BATCH-025"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "RST",
+      "identity": "RST",
+      "operand_count": [
+        1
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "M...Z"
+          ],
+          [
+            "U...\\G...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-026",
+        "P004-Q06UDV-BATCH-052"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "SET",
+      "identity": "SET",
+      "operand_count": [
+        1
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "M...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-027"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "NEXT",
+      "identity": "NEXT",
+      "operand_count": [
+        0
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          []
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-005"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "END",
+      "identity": "END",
+      "operand_count": [
+        0
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          []
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-005"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "MOV",
+      "identity": "MOV",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "KnF",
+            "D"
+          ],
+          [
+            "K",
+            "U...\\G...Z"
+          ],
+          [
+            "D",
+            "U...\\G...Z"
+          ],
+          [
+            "U...\\G...Z",
+            "D...Z"
+          ],
+          [
+            "K",
+            "D...Z"
+          ],
+          [
+            "D...Z",
+            "U...\\G...Z"
+          ],
+          [
+            "U...\\G...Z",
+            "K4M"
+          ],
+          [
+            "D",
+            "K2Y"
+          ],
+          [
+            "K",
+            "K4M...Z"
+          ],
+          [
+            "H",
+            "U...\\G...Z"
+          ],
+          [
+            "D",
+            "R...Z"
+          ],
+          [
+            "SD1255",
+            "K4M"
+          ],
+          [
+            "KnX",
+            "D"
+          ],
+          [
+            "D",
+            "KnX"
+          ],
+          [
+            "KnY",
+            "D"
+          ],
+          [
+            "D",
+            "KnY"
+          ],
+          [
+            "K2Y",
+            "D"
+          ],
+          [
+            "KnM",
+            "D"
+          ],
+          [
+            "D",
+            "KnM"
+          ],
+          [
+            "K4M",
+            "D"
+          ],
+          [
+            "D",
+            "K4M"
+          ],
+          [
+            "KnL",
+            "D"
+          ],
+          [
+            "D",
+            "KnL"
+          ],
+          [
+            "KnSM",
+            "D"
+          ],
+          [
+            "D",
+            "KnSM"
+          ],
+          [
+            "D",
+            "KnF"
+          ],
+          [
+            "KnB",
+            "D"
+          ],
+          [
+            "D",
+            "KnB"
+          ],
+          [
+            "KnSB",
+            "D"
+          ],
+          [
+            "D",
+            "KnSB"
+          ],
+          [
+            "SD1282",
+            "K4M"
+          ],
+          [
+            "SD1284",
+            "K4M"
+          ],
+          [
+            "SD1286",
+            "K4M"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-016",
+        "P004-Q06UDV-BATCH-033",
+        "P004-Q06UDV-BATCH-034",
+        "P004-Q06UDV-BATCH-035",
+        "P004-Q06UDV-BATCH-038",
+        "P004-Q06UDV-BATCH-040",
+        "P004-Q06UDV-BATCH-045",
+        "P004-Q06UDV-BATCH-060",
+        "P004-Q06UDV-BATCH-053",
+        "P004-Q06UDV-BATCH-055",
+        "P004-Q06UDV-BATCH-058",
+        "P004-Q06UDV-BATCH-065",
+        "P004-Q06UDV-ISSUE49-KN"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "DMOV",
+      "identity": "DMOV",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D...Z",
+            "D...Z"
+          ],
+          [
+            "U...\\G...Z",
+            "D...Z"
+          ],
+          [
+            "D...Z",
+            "U...\\G...Z"
+          ],
+          [
+            "K",
+            "D...Z"
+          ],
+          [
+            "D",
+            "U...\\G...Z"
+          ],
+          [
+            "K",
+            "U...\\G...Z"
+          ],
+          [
+            "KnX",
+            "D"
+          ],
+          [
+            "D",
+            "KnX"
+          ],
+          [
+            "KnY",
+            "D"
+          ],
+          [
+            "D",
+            "KnY"
+          ],
+          [
+            "K2Y",
+            "D"
+          ],
+          [
+            "KnM",
+            "D"
+          ],
+          [
+            "D",
+            "KnM"
+          ],
+          [
+            "K4M",
+            "D"
+          ],
+          [
+            "D",
+            "K4M"
+          ],
+          [
+            "KnL",
+            "D"
+          ],
+          [
+            "D",
+            "KnL"
+          ],
+          [
+            "KnSM",
+            "D"
+          ],
+          [
+            "D",
+            "KnSM"
+          ],
+          [
+            "KnF",
+            "D"
+          ],
+          [
+            "D",
+            "KnF"
+          ],
+          [
+            "KnB",
+            "D"
+          ],
+          [
+            "D",
+            "KnB"
+          ],
+          [
+            "KnSB",
+            "D"
+          ],
+          [
+            "D",
+            "KnSB"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-028",
+        "P004-Q06UDV-BATCH-029",
+        "P004-Q06UDV-BATCH-030",
+        "P004-Q06UDV-BATCH-031",
+        "P004-Q06UDV-BATCH-032",
+        "P004-Q06UDV-BATCH-039",
+        "P004-Q06UDV-ISSUE49-KN"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "D/",
+      "identity": "D/",
+      "operand_count": [
+        3
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D...Z",
+            "D",
+            "D"
+          ],
+          [
+            "D...Z",
+            "K",
+            "D...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-036",
+        "P004-Q06UDV-BATCH-037"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "FF",
+      "identity": "FF",
+      "operand_count": [
+        1
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "M...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-046"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "ORP",
+      "identity": "ORP",
+      "operand_count": [
+        1
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "M...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-047"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "ANDD=",
+      "identity": "ANDD=",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "K",
+            "D...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-048"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "AND>",
+      "identity": "AND>",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "K",
+            "D...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-049"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "AND<",
+      "identity": "AND<",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "K",
+            "D...Z"
+          ],
+          [
+            "R...Z",
+            "D"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-050",
+        "P004-Q06UDV-BATCH-057"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "OR<>",
+      "identity": "OR<>",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "K",
+            "U...\\G...Z"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-051"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "DECO",
+      "identity": "DECO",
+      "operand_count": [
+        3
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D...Z",
+            "M...Z",
+            "K"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-054"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "BTOW",
+      "identity": "BTOW",
+      "operand_count": [
+        3
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D",
+            "D",
+            "K"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-061"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "WTOB",
+      "identity": "WTOB",
+      "operand_count": [
+        3
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D",
+            "D",
+            "K"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-062"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "EVAL",
+      "identity": "EVAL",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D",
+            "D"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-063"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "DINT",
+      "identity": "DINT",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D",
+            "D"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-BATCH-064"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "SP.SOCOPEN",
+      "identity": "SP.SOCOPEN",
+      "operand_count": [
+        4
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "U",
+            "K",
+            "D",
+            "M"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-ISSUE46-SOCKET",
+        "P004-Q06UDV-ISSUE54-SOCOPEN-K5"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "SP.SOCSND",
+      "identity": "SP.SOCSND",
+      "operand_count": [
+        5
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "U",
+            "K",
+            "D",
+            "D",
+            "M"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-ISSUE46-SOCKET"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "SP.SOCRCV",
+      "identity": "SP.SOCRCV",
+      "operand_count": [
+        5
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "U",
+            "K",
+            "D",
+            "D",
+            "M"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-ISSUE46-SOCKET"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "SP.SOCCLOSE",
+      "identity": "SP.SOCCLOSE",
+      "operand_count": [
+        4
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "U",
+            "K",
+            "D",
+            "M"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-ISSUE46-SOCKET"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "DMOVP",
+      "identity": "DMOVP",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "KnX",
+            "D"
+          ],
+          [
+            "D",
+            "KnX"
+          ],
+          [
+            "KnY",
+            "D"
+          ],
+          [
+            "D",
+            "KnY"
+          ],
+          [
+            "K2Y",
+            "D"
+          ],
+          [
+            "KnM",
+            "D"
+          ],
+          [
+            "D",
+            "KnM"
+          ],
+          [
+            "K4M",
+            "D"
+          ],
+          [
+            "D",
+            "K4M"
+          ],
+          [
+            "KnL",
+            "D"
+          ],
+          [
+            "D",
+            "KnL"
+          ],
+          [
+            "KnSM",
+            "D"
+          ],
+          [
+            "D",
+            "KnSM"
+          ],
+          [
+            "KnF",
+            "D"
+          ],
+          [
+            "D",
+            "KnF"
+          ],
+          [
+            "KnB",
+            "D"
+          ],
+          [
+            "D",
+            "KnB"
+          ],
+          [
+            "KnSB",
+            "D"
+          ],
+          [
+            "D",
+            "KnSB"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-ISSUE49-KN"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "MOVP",
+      "identity": "MOVP",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "KnX",
+            "D"
+          ],
+          [
+            "D",
+            "KnX"
+          ],
+          [
+            "KnY",
+            "D"
+          ],
+          [
+            "D",
+            "KnY"
+          ],
+          [
+            "K2Y",
+            "D"
+          ],
+          [
+            "KnM",
+            "D"
+          ],
+          [
+            "D",
+            "KnM"
+          ],
+          [
+            "K4M",
+            "D"
+          ],
+          [
+            "D",
+            "K4M"
+          ],
+          [
+            "KnL",
+            "D"
+          ],
+          [
+            "D",
+            "KnL"
+          ],
+          [
+            "KnSM",
+            "D"
+          ],
+          [
+            "D",
+            "KnSM"
+          ],
+          [
+            "KnF",
+            "D"
+          ],
+          [
+            "D",
+            "KnF"
+          ],
+          [
+            "KnB",
+            "D"
+          ],
+          [
+            "D",
+            "KnB"
+          ],
+          [
+            "KnSB",
+            "D"
+          ],
+          [
+            "D",
+            "KnSB"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-ISSUE49-KN"
+      ]
+    },
+    {
+      "csv_projection": {
+        "column_count": 7,
+        "instruction_column": 2,
+        "operand_column": 3
+      },
+      "display_token": "SFL",
+      "identity": "SFL",
+      "operand_count": [
+        2
+      ],
+      "operand_grammar": {
+        "observed_forms": [
+          [
+            "D",
+            "K"
+          ]
+        ],
+        "scope": "observed A/B forms only"
+      },
+      "oracle_ids": [
+        "P004-Q06UDV-ISSUE42-SFL"
+      ]
+    }
+  ],
+  "schema": "fx5-q-converter.runtime-facts.v1",
+  "source": {
+    "neutral_ir": {
+      "schema_name": "plcman.gx3.neutral-ir"
+    },
+    "producer": {
+      "cpu_families": [
+        "FX5U",
+        "FX5UC",
+        "FX5UJ",
+        "FX5S"
+      ],
+      "package": "gx3-fx5-parser-toolkit",
+      "profile": "FX5U/FX5UC/FX5UJ/FX5S/Ladder"
+    }
+  },
+  "target": {
+    "note_lifecycle": {
+      "attachment_forms": [
+        {
+          "instruction": "MOV",
+          "operands": [
+            "K",
+            "D"
+          ]
+        }
+      ],
+      "subtypes": [
+        "i",
+        "s"
+      ],
+      "support_status": "FULL"
+    }
+  },
+  "version": "2.2.63"
+}
