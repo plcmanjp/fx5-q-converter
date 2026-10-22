@@ -200,7 +200,6 @@ class Workspace(QMainWindow):
         self.header_widgets = [header.itemAt(i).widget() for i in range(header.count())
                                if header.itemAt(i).widget()]
         self.update_button = QPushButton("업데이트 확인")
-        header.addWidget(self.update_button)
         from p006_app.qt_update import UpdateNotifier
         self.updates = UpdateNotifier(self, self.update_button, application_version())
         layout.addLayout(header)
@@ -215,6 +214,7 @@ class Workspace(QMainWindow):
         self.mapping_revision = 0
         self.validation_revision = None
         self.workflow_tabs = QTabWidget()
+        self.workflow_tabs.setCornerWidget(self.update_button, Qt.Corner.TopRightCorner)
         self.workflow_tabs.setAccessibleName("변환 작업 3단계")
         self.pages = []
         for title in ("1 파일 등록", "2 주소·규칙", "3 결과"):

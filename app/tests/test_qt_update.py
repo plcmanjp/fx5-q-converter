@@ -3,7 +3,6 @@ import time
 import unittest
 from unittest.mock import patch
 
-from PySide6.QtCore import QPoint
 from PySide6.QtWidgets import QApplication, QDialog, QHBoxLayout, QPushButton, QWidget
 
 from p006_app.qt_update import UpdateNotifier
@@ -17,6 +16,12 @@ class QtUpdateTests(unittest.TestCase):
         cls.app = QApplication.instance() or QApplication([])
 
     def setUp(self):
+        # Other UI suites may retain an owned modal. An unrelated modal must not
+        # turn this test's deliberate deferred-notice behavior into a timeout.
+        for widget in self.app.topLevelWidgets():
+            if isinstance(widget, QDialog):
+                widget.close()
+        self.app.processEvents()
         self.window = QWidget()
         self.window.busy = self.window.closing = False
         self.window.resize(800, 550)

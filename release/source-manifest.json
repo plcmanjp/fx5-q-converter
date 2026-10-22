@@ -289,8 +289,8 @@
       "sha256": "55383cf7ef44cdda4784c3254943ce9663cae2867e556999b33f942778f0f638"
     },
     "app/src/p006_app/qt_app.py": {
-      "bytes": 86196,
-      "sha256": "3192d712e24f6106e1a69803f045c17c5306dc86c32954cd52ecfa1a197cd7f4"
+      "bytes": 86240,
+      "sha256": "3abf07ede8a947fffa76dbea305ea7544f041b050631d3de97a8c54d88760824"
     },
     "app/src/p006_app/qt_inspector.py": {
       "bytes": 8729,
@@ -521,8 +521,8 @@
       "sha256": "5a17a048ab4843649b0cc6bab77ea982cce58a52a7d3117d44425a647d398ab3"
     },
     "app/tests/test_qt_update.py": {
-      "bytes": 4687,
-      "sha256": "780c358d5f1297d8d020f8d4bcb6f311579c2da8450bf8108b7bc29d961c664e"
+      "bytes": 4971,
+      "sha256": "55440e7b5c3978f39474e778150bc442340d7143472eb79013ef54dc506b615e"
     },
     "app/tests/test_runtime_facts.py": {
       "bytes": 2170,
