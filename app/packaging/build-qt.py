@@ -14,7 +14,7 @@ import zipfile
 
 APP = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(APP/"src"))
-from p006_app.branding import APP_NAME, EXECUTABLE_NAME
+from app.branding import APP_NAME, EXECUTABLE_NAME
 
 
 def sha(path):

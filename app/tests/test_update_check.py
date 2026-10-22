@@ -5,7 +5,7 @@ import unittest
 from urllib.error import HTTPError, URLError
 from unittest.mock import Mock
 
-from p006_app.update_check import (LATEST_API, MAX_RESPONSE_BYTES, REPOSITORY_URL,
+from app.update_check import (LATEST_API, MAX_RESPONSE_BYTES, REPOSITORY_URL,
                                    NoRedirect, check_for_update, parse_release)
 
 
