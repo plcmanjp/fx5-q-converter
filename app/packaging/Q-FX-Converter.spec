@@ -12,7 +12,7 @@ for package, directory in (("p006_app", "approved-profiles"), ("p006_converter",
     datas.append((str(app/"src"/package/"resources"/directory), f"{package}/resources/{directory}"))
 a = Analysis([str(app/"packaging/qt_portable_entry.py")], pathex=[str(app/"src")],
              binaries=[], datas=datas, hiddenimports=["olefile", "p006_app.qt_workflow", "p006_converter.text_conversion"],
-             hookspath=[], hooksconfig={}, runtime_hooks=[], excludes=["webview", "pythonnet", "clr", "bottle"],
+             hookspath=[], hooksconfig={}, runtime_hooks=[], excludes=["webview", "pythonnet", "clr", "bottle", "tkinterdnd2"],
              noarchive=False, optimize=0)
 pyz = PYZ(a.pure)
 exe = EXE(pyz, a.scripts, [], exclude_binaries=True, name=EXECUTABLE_NAME, version=str(version),

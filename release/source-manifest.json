@@ -45,8 +45,8 @@
       "sha256": "87d7875db8308da8316906f6a4ab479e2163c3e7bd69d70824fcf3463aa17458"
     },
     "app/packaging/Q-FX-Converter.spec": {
-      "bytes": 1374,
-      "sha256": "bfccd40c9c72ab0d8760b9f71cbb7aa932574a33ee43b491495c43ad397a8c4b"
+      "bytes": 1389,
+      "sha256": "b8e358edaf762a21de3d3d1136637eb818a46246d6e060a16faade908f41af13"
     },
     "app/packaging/build-qt.py": {
       "bytes": 13259,
