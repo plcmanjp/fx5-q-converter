@@ -4,7 +4,9 @@ Mitsubishi FX5 계열과 Q 계열 프로젝트의 래더 텍스트와 코멘트�
 
 ## 다운로드와 실행
 
-[Releases](https://github.com/plcmanjp/fx5-q-converter/releases)에서 `Q-FX-Converter-v버전.zip`을 내려받아 **전체 압축을 풀고** `Q-FX-Converter.exe`를 실행합니다. EXE만 옮기면 실행되지 않습니다. Windows x64용이며 코드 서명은 제공하지 않습니다.
+[최신 앱 Release](https://github.com/plcmanjp/fx5-q-converter/releases/latest)에서 `Q-FX-Converter-v버전.zip`을 내려받아 **전체 압축을 풀고** `Q-FX-Converter.exe`를 실행합니다. EXE만 옮기면 실행되지 않습니다. Windows x64용이며 코드 서명은 제공하지 않습니다.
+
+실행에는 ZIP 하나만 필요합니다. Qt/PySide 대응 소스와 배포 검증 자료는 앱 Release 본문의 지원 자료 링크에서 별도로 제공합니다. [2.2.65 지원 자료](https://github.com/plcmanjp/fx5-q-converter/releases/tag/support-v2.2.65)는 실행에 필요하지 않습니다.
 
 파일 등록, 주소 규칙, 결과의 3개 화면을 사용합니다. 원본을 고르고 대상 CPU 및 필요한 주소 규칙을 설정한 뒤 변환합니다. 기존 파일을 덮어쓰지 않고 새 결과 폴더에 저장합니다. 현장 전용 자동 매핑 프로필은 포함하지 않습니다.
 

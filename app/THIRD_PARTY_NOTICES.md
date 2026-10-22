@@ -13,6 +13,6 @@ MIT는 자체 작성 앱 코드와 문서에 적용합니다. 아래 구성요�
 
 Qt 내부의 압축, 이미지, 글꼴 등 제3자 구성요소는 Qt 소스에 포함된 해당 라이선스를 유지합니다. 상용 라이선스 원문이 자료에 포함돼 있어도 상용 라이선스를 선택했다는 뜻은 아닙니다. 이 배포는 LGPL 옵션을 사용합니다.
 
-같은 Release 페이지에서 Qt 6.11.2와 PySide6/shiboken6 6.11.2의 해당 소스 압축파일을 바이너리와 함께 제공합니다. 변경하지 않은 upstream 소스이며 취득 URL과 SHA-256은 Release의 `third-party-sources.json`에 기록합니다. Qt DLL 구성에 맞는 소스 모듈을 포함합니다. [빌드 및 교체 안내](BUILD.md)를 통해 수정된 라이브러리를 재빌드하고 교체할 수 있습니다.
+앱 Release 본문의 지원 자료 링크에서 동봉된 Qt/PySide에 대응하는 소스 압축파일을 무료로 제공합니다. [2.2.65 지원 자료](https://github.com/plcmanjp/fx5-q-converter/releases/tag/support-v2.2.65)에는 Qt 6.11.2와 PySide6/shiboken6 6.11.2의 변경하지 않은 upstream 소스를 보존합니다. 취득 URL과 SHA-256은 같은 위치의 third-party-sources.json에 기록하며 Qt DLL 구성에 맞는 소스 모듈을 포함합니다. 실행 ZIP은 앱 Release에서 받습니다. [빌드 및 교체 안내](BUILD.md)를 통해 수정된 라이브러리를 재빌드하고 교체할 수 있습니다.
 
 공식 안내: [MIT](https://opensource.org/license/mit), [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0), [Qt LGPL 의무](https://www.qt.io/development/open-source-lgpl-obligations), [Qt for Python 라이선스](https://doc.qt.io/qtforpython-6/licenses.html), [PyInstaller 라이선스](https://pyinstaller.org/en/stable/license.html).
