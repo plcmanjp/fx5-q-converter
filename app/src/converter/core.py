@@ -341,6 +341,9 @@ LDDB_EXACT_ARITIES = frozenset({
 })
 LDDB_RAW_OPERAND_COUNTS = {"+": (3,), "-": (3,), "D+": (3,)}
 MIL_EXACT_SOURCE_COMMANDS = {
+    ("PLSV", "none", ("A32", "Aea", "Abl"), ("D", "Y", "Y")): "DPLSV",
+    ("DSZR", "none", ("A32", "A32", "Aea", "Abl"), ("D", "D", "K_1", "M")): "DDSZR",
+    ("DRVA", "none", ("A32", "A32", "Aea", "Abl"), ("D", "D", "K_1", "M")): "DDRVA",
     ("SET", "none", ("A16", "A16", "Abl"), ("T", "D", "F")): "ANS",
     ("SET", "none", ("A16", "A16", "Abl"), ("T", "K_1", "F")): "ANS",
     ("AddOpe", "none", ("A32s", "A32s"), ("K_2", "Z")): "D+",
@@ -2672,6 +2675,13 @@ def _mil_format_operand_in_context(
     f_prefixes = tuple(item for item in approved_f_contexts if all_tags[:len(item[2])] == list(item[2]))
     shape, numbers = value
     if (
+        instruction in {"ANI", "ORI"} and signature == ("Abl",)
+        and operand_index == 0 and all_tags[:1] == ["DX"] and remaining_tags[:1] == ["DX"]
+    ):
+        if shape != "scalar" or len(numbers) != 1 or numbers[0] < 0:
+            raise _mining_error("MIL exact DX operand is unmined", "category=mil_operand;tag=DX")
+        return f"DX{numbers[0]:X}", 1
+    if (
         instruction == "MOV" and signature == ("A16", "A16")
         and operand_index == 1 and all_tags[:3] == ["D", "Y", "Ks"]
         and remaining_tags[:2] == ["Y", "Ks"]
@@ -2689,7 +2699,7 @@ def _mil_format_operand_in_context(
             raise _mining_error("MIL exact FOR operand is unmined", "category=mil_operand;marker=FOR")
         value_tag = str(numbers[0])
         return f"K{value_tag}", 2 if all_tags[1:2] == [value_tag] else 1
-    if remaining_tags[:1] == ["F"] and any(
+    if remaining_tags[:1] == ["F"] and remaining_tags[1:2] not in (["Zs"], ["Ks"]) and any(
         instruction == item[0] and signature == item[1] and operand_index == item[3]
         for item in f_prefixes
     ):
@@ -2755,6 +2765,31 @@ def _validate_mil_exact_source_context(
     record: str,
 ) -> None:
     """Keep source-only operand forms bound to their complete MIL context."""
+    if operand_tags == ("F", "Zs"):
+        operation = {
+            "LD": r"lct\{op=#:lt=l:ct=a:as=\[as\{vt=Abl\}\]\}",
+            "OR": r"lct\{op=#:lt=o:ct=a:as=\[as\{vt=Abl\}\]\}",
+            "OUT": r"cl\{op=#:ct=a:as=\[as\{vt=Abl\}\]\}",
+        }.get(instruction)
+        if (
+            operation is None or signature != ("Abl",)
+            or re.fullmatch(
+                r"mc\{op=" + operation
+                + r":as=\[M\{b=d\{s=#:a=\d+:vt=nn\}:m=d\{s=#:a=\d+:vt=nn\}\}\]\}",
+                record,
+            ) is None
+        ):
+            raise _mining_error("MIL exact indexed F context is unmined", "category=mil_operand;tag=F")
+    if "DX" in operand_tags:
+        logic = {"ANI": "a", "ORI": "o"}.get(instruction)
+        if (
+            logic is None or signature != ("Abl",) or operand_tags != ("DX",)
+            or re.fullmatch(
+                r"mc\{op=lct\{op=#:lt=" + logic + r":ct=a:as=\[as\{vt=Abl\}\]\}:"
+                r"as=\[d\{s=#:a=\d+:vt=nn\}\]\}", record,
+            ) is None
+        ):
+            raise _mining_error("MIL exact DX context is unmined", "category=mil_operand;tag=DX")
     if operand_tags == ("D", "Y", "Ks") and not (
         instruction == "MOV" and signature == ("A16", "A16")
         and len(operands) == 2 and operands[0][0] == "scalar"
@@ -3086,6 +3121,18 @@ def _decode_mil_block(
                 if not exact_for:
                     raise _mining_error("MIL exact FOR serialization is unmined", "category=mil_operand;marker=FOR")
             instruction = _mil_exact_source_command(marker, pulse_kind, signature, tokens[cursor:])
+            if marker in {"PLSV", "DSZR", "DRVA"}:
+                # The MIL marker omits the double-word prefix. Preserve the
+                # exact observed width and raw scalar form in the independent
+                # source model before comparing it with the pinned reader.
+                kinds = ("d", "d", "d") if marker == "PLSV" else ("d", "d", "c", "d")
+                operation = "mc{op=cl{op=#:ct=a:as=[" + ":".join(f"as{{vt={vt}}}" for vt in signature) + "]}:as=["
+                pattern = re.escape(operation) + ":".join(
+                    r"d\{s=#:a=\d+:vt=nn\}" if kind == "d" else r"c\{s=#:v=\d+:si=s\}"
+                    for kind in kinds
+                ) + r"\]\}"
+                if instruction is None or re.fullmatch(pattern, record) is None:
+                    raise _mining_error("MIL positioning serialization is unmined", "category=mil_operand")
             if instruction is None:
                 if any(
                     marker == expected_marker

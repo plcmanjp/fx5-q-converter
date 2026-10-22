@@ -109,7 +109,7 @@ def build_source_neutral_ir(
         or value.get("schema_version") != "1.0.0"
         or value.get("producer", {}).get("package") != "gx3-fx5-parser-toolkit"
         or value.get("producer", {}).get("source_commit") != expected_commit
-        or (public_overlay is not None and value.get("producer", {}).get("version") != "0.4.0")
+        or (public_overlay is not None and value.get("producer", {}).get("version") != "0.4.1")
         or value.get("profile", {}).get("detector_status") != "SUPPORTED"
     ):
         _fail("P002 Neutral IR result is incompatible or unsupported")

@@ -17,11 +17,11 @@ import zipfile
 
 OVERLAY_SCHEMA = "plcman.p006.public-upstream-overlay.v1"
 PUBLIC_PACKAGE = "gx3-fx5-parser-toolkit"
-PUBLIC_VERSION = "0.4.0"
-PUBLIC_COMMIT = "d3dd42b2ca13bbc24f0016e258efb48d50b0eb7f"
-PUBLIC_TREE = "99721fee59932e37edb8c027c410f8c3ddefe504"
-APPROVED_WHEEL_BYTES = 81659
-APPROVED_WHEEL_SHA256 = "b38c04fc2648c1dcb2feed08b4237d91a777633cdf8888284abb629c84bd8dcf"
+PUBLIC_VERSION = "0.4.1"
+PUBLIC_COMMIT = "6ccaa3b730d5864050e68b429bdd24d986f489f7"
+PUBLIC_TREE = "a27bf14da7b02199e858ad3e4519b0a2642abf4b"
+APPROVED_WHEEL_BYTES = 91562
+APPROVED_WHEEL_SHA256 = "507b3923a30e126032542fb49912df0068eed83942d15faf019b71439ea097e2"
 APPROVED_SCHEMA_SHA256 = "b42b578be8b10190c4a7e8ff7dc52dda05b1e30cd1a21a03b16b92a51eb4f6ed"
 EXPECTED_CONSUMER_BASELINE = "2cc317e6cac6fb3d8633b9d7506368fd0e1f6fd5"
 EXPECTED_CONSUMER_VERSION = "2.1.3"
@@ -31,11 +31,12 @@ MAX_ENTRY_BYTES = 2 * 1024 * 1024
 MAX_TOTAL_BYTES = 16 * 1024 * 1024
 MAX_RATIO = 1_000
 
-_WHEEL_PATH = "wheel/d3dd42b2ca13bbc24f0016e258efb48d50b0eb7f/gx3_fx5_parser_toolkit-0.4.0-py3-none-any.whl"
+_WHEEL_PATH = "wheel/6ccaa3b730d5864050e68b429bdd24d986f489f7/gx3_fx5_parser_toolkit-0.4.1-py3-none-any.whl"
 _AUTHORITY_PATH = "upstream-contracts/manifest.json"
 _EXPECTED_PUBLIC_PAYLOADS = frozenset({
     "gx3_core/__init__.py", "gx3_core/archive.py", "gx3_core/models.py", "gx3_core/xml.py",
-    "gx3_fx5_profile/__init__.py", "gx3_fx5_profile/config.py", "gx3_fx5_profile/decoder.py", "gx3_fx5_profile/detector.py",
+    "gx3_fx5_profile/__init__.py", "gx3_fx5_profile/config.py", "gx3_fx5_profile/cpu_observed.py",
+    "gx3_fx5_profile/hsc_observed.py", "gx3_fx5_profile/decoder.py", "gx3_fx5_profile/detector.py",
     "gx3_fx5_profile/opcode_signatures.py", "gx3_fx5_profile/topology.py",
     "gx3_fx5_parser_toolkit/__init__.py", "gx3_fx5_parser_toolkit/_provenance.json",
     "gx3_fx5_parser_toolkit/acceptance.py", "gx3_fx5_parser_toolkit/cli.py",
@@ -259,10 +260,10 @@ def validate_public_upstream(root: Path | None = None, *, authority_root: Path |
         _fail("private authority manifest replica differs from actual authority")
     entries = _read_wheel(base / _WHEEL_PATH)
     try:
-        metadata = entries["gx3_fx5_parser_toolkit-0.4.0.dist-info/METADATA"].decode("utf-8")
+        metadata = entries["gx3_fx5_parser_toolkit-0.4.1.dist-info/METADATA"].decode("utf-8")
     except (KeyError, UnicodeDecodeError) as error:
         raise PublicUpstreamValidationError("public wheel metadata is missing or invalid") from error
-    if "Name: gx3-fx5-parser-toolkit" not in metadata or "Version: 0.4.0" not in metadata:
+    if "Name: gx3-fx5-parser-toolkit" not in metadata or "Version: 0.4.1" not in metadata:
         _fail("public wheel metadata package or version differs")
     provenance = _json(entries["gx3_fx5_parser_toolkit/_provenance.json"], "public wheel provenance")
     if provenance != {"format": "gx-re-toolkit.source.v1", "source_commit": PUBLIC_COMMIT, "source_tree": PUBLIC_TREE}:

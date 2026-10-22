@@ -26,16 +26,16 @@
     "version": "2.1.3"
   },
   "public": {
-    "commit": "d3dd42b2ca13bbc24f0016e258efb48d50b0eb7f",
+    "commit": "6ccaa3b730d5864050e68b429bdd24d986f489f7",
     "package": "gx3-fx5-parser-toolkit",
     "repository": "plcmanjp/gx-re-toolkit",
-    "tree": "99721fee59932e37edb8c027c410f8c3ddefe504",
-    "version": "0.4.0"
+    "tree": "a27bf14da7b02199e858ad3e4519b0a2642abf4b",
+    "version": "0.4.1"
   },
   "schema": "plcman.p006.public-upstream-overlay.v1",
   "wheel": {
-    "bytes": 81659,
-    "path": "wheel/d3dd42b2ca13bbc24f0016e258efb48d50b0eb7f/gx3_fx5_parser_toolkit-0.4.0-py3-none-any.whl",
-    "sha256": "b38c04fc2648c1dcb2feed08b4237d91a777633cdf8888284abb629c84bd8dcf"
+    "bytes": 91562,
+    "path": "wheel/6ccaa3b730d5864050e68b429bdd24d986f489f7/gx3_fx5_parser_toolkit-0.4.1-py3-none-any.whl",
+    "sha256": "507b3923a30e126032542fb49912df0068eed83942d15faf019b71439ea097e2"
   }
 }
