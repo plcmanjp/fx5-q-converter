@@ -8,10 +8,11 @@ version = Path(os.environ["QFX_VERSION_RESOURCE"]).resolve(strict=True)
 datas = []
 datas.append((str(app/"src/converter/resources/statement-format-widths.json"), "converter/resources"))
 for package, directory in (("app", "approved-profiles"), ("converter", "public-runtime" if PUBLIC_RELEASE else "upstream-contracts"),
-                           ("converter", "public-upstream"), ("converter", "q-reader")):
+                           ("converter", "public-upstream"), ("converter", "q-reader"),
+                           ("converter", "readonly-analysis")):
     datas.append((str(app/"src"/package/"resources"/directory), f"{package}/resources/{directory}"))
 a = Analysis([str(app/"packaging/qt_portable_entry.py")], pathex=[str(app/"src")],
-             binaries=[], datas=datas, hiddenimports=["olefile", "app.qt_workflow", "converter.text_conversion"],
+             binaries=[], datas=datas, hiddenimports=["olefile", "app.qt_workflow", "converter.text_conversion", "converter.gxw_diagnostics"],
              hookspath=[], hooksconfig={}, runtime_hooks=[], excludes=["webview", "pythonnet", "clr", "bottle", "tkinterdnd2"],
              noarchive=False, optimize=0)
 pyz = PYZ(a.pure)

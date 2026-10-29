@@ -1,4 +1,6 @@
 {
+  "schema": "qfx.public-source/1",
+  "version": "2.2.66",
   "files": {
     ".gitattributes": {
       "bytes": 83,
@@ -13,52 +15,52 @@
       "sha256": "7de6351616829db98f7d87d2d3c484f293ca9c83cfe822099a1d37eca096ada0"
     },
     "BUILD.md": {
-      "bytes": 3230,
-      "sha256": "937df8deac8e703e212962c60126a22509b3e2333547b67f0f51367534770d0d"
+      "bytes": 3662,
+      "sha256": "1bf29e89db54e1030c1a80f3922232f31d5622bb9e8024e5fcb1b7b116426da7"
     },
     "LICENSE": {
       "bytes": 1065,
       "sha256": "7f480cc658b029e3d8f62115121093925bcdce2d33d9eeff5c0af76b57347492"
     },
     "README.md": {
-      "bytes": 4394,
-      "sha256": "70ab988be72ce3fcc74bf3ae5ca2480ffd40b19f2b904832b423aef7f9d68db2"
+      "bytes": 5661,
+      "sha256": "8f6035b87875257f382d8703d0d4eba6b113dfd834653b72d21f98a965b08c0f"
     },
     "THIRD_PARTY_NOTICES.md": {
-      "bytes": 2422,
-      "sha256": "e6a162f26d212c696ee3d95ea7db764831f4202815a916cd16d7be0a72e7cba8"
+      "bytes": 2742,
+      "sha256": "1479fc9fac8d47e80ac87a185161ee2793c4103f476640afa50f2aadc3f3da77"
     },
     "app/BUILD.md": {
-      "bytes": 3230,
-      "sha256": "937df8deac8e703e212962c60126a22509b3e2333547b67f0f51367534770d0d"
+      "bytes": 3428,
+      "sha256": "05198599306e910bc29f662c5ec72c108480e935077c2e78031fbd92ec820b4e"
     },
     "app/LICENSE": {
       "bytes": 1065,
       "sha256": "7f480cc658b029e3d8f62115121093925bcdce2d33d9eeff5c0af76b57347492"
     },
     "app/README.md": {
-      "bytes": 4394,
-      "sha256": "70ab988be72ce3fcc74bf3ae5ca2480ffd40b19f2b904832b423aef7f9d68db2"
+      "bytes": 5711,
+      "sha256": "5fb4d13bf94819226c6ad678fc5bb8b27101333d180d79b91c52f6978c594673"
     },
     "app/THIRD_PARTY_NOTICES.md": {
-      "bytes": 2422,
-      "sha256": "e6a162f26d212c696ee3d95ea7db764831f4202815a916cd16d7be0a72e7cba8"
+      "bytes": 2742,
+      "sha256": "5907f5f2871c95552e91d54579e86bb22540b38c1911f765adcade265427ab56"
     },
     "app/VERSION": {
       "bytes": 7,
-      "sha256": "6415abf856700553b9448a8c0f6ad3b27a2ff6666368f6c7345b401f09f790da"
+      "sha256": "df5562b779be36ca2bc431c2c6deefca3ca02f0ccbc169c14b442ce457f010a5"
     },
     "app/packaging/Q-FX-Converter.spec": {
-      "bytes": 1339,
-      "sha256": "aa3869532e49b700465d7486ece8928579819c6b227ec5be559a15191d3e8f77"
+      "bytes": 1431,
+      "sha256": "6f0af7fd9c3504be790e997769815165f95f3aa27a109d9d6ff9a9e7d9eb0e2a"
     },
     "app/packaging/build-qt.py": {
       "bytes": 13254,
       "sha256": "de3532cf4883d29faf54fcf1b744e48f588699ec17022748ddf263e61f9e94bb"
     },
     "app/packaging/qt_portable_entry.py": {
-      "bytes": 232,
-      "sha256": "961d8c30d79833dbe7e090937f7f11f45d691930384d5e2cf655e3a562769f29"
+      "bytes": 594,
+      "sha256": "ffc704553b3f1cb04fa1bbc63e106b6e748ba07b4572f8f5f11b02aee9788970"
     },
     "app/packaging/requirements-qt.txt": {
       "bytes": 165,
@@ -281,20 +283,20 @@
       "sha256": "deda63165a81de67e7955bd83f9ad32a02ccfca17ca450f3a6fb00259c87e465"
     },
     "app/src/app/generation_guidance.py": {
-      "bytes": 5354,
-      "sha256": "f07ed40b8849cb8e7a68dec4feac5a0ba8ba357da80f6fedc74e887eee4f8ccd"
+      "bytes": 5350,
+      "sha256": "70b9f16e68ac9d8d0749fa13407986e618eecb18e2cd5b8265fbfb27a800ae00"
     },
     "app/src/app/pilot_app.py": {
-      "bytes": 86723,
-      "sha256": "873c2839aa187164912b5b1b9728c4f65f50db448dfea2badab8f5bcdddc1431"
+      "bytes": 86770,
+      "sha256": "a4cb06a10ead39030add0318b17d1c7c982799383e71d87f6aa78a09f792c547"
     },
     "app/src/app/preparation_session.py": {
       "bytes": 16529,
       "sha256": "9b0f1a987c2432bb6f2a47b04369ae0133e8effe86a5966ace1f7a4f5e6cea14"
     },
     "app/src/app/qt_app.py": {
-      "bytes": 90099,
-      "sha256": "f1ec1b4aea3e1b36268c43b2ec272ba07137d51723a98345bb1944dbd4e67871"
+      "bytes": 91134,
+      "sha256": "3889bf636ed39c77bcfa6e1dab8a7a722ec96a5ce21960ff923fb54627a2dbee"
     },
     "app/src/app/qt_inspector.py": {
       "bytes": 8729,
@@ -313,8 +315,8 @@
       "sha256": "99bda306db5b280637caf8bf0b414ef99b54c0e14e202de78d143aa0ee0facc6"
     },
     "app/src/app/qt_settings.py": {
-      "bytes": 43982,
-      "sha256": "4783ffba466b40d1f6a9c9e48dd5c5a961ee4eb445f7de92a55b63649f9b0411"
+      "bytes": 46917,
+      "sha256": "80613413b76d77458a63eff6a6408fcd0f261a360dc3cb772a9f8ff681b137be"
     },
     "app/src/app/qt_update.py": {
       "bytes": 5762,
@@ -373,8 +375,8 @@
       "sha256": "8e5c929d35410669dce9e07358ae969ba7155c47cba041572f6d3ec7153abe4e"
     },
     "app/src/converter/__main__.py": {
-      "bytes": 602,
-      "sha256": "f6b55f1981007b523707a4705a2bdba167b6bff1f2761959e06f0fe5cb53c7a0"
+      "bytes": 750,
+      "sha256": "7892442e3e1e7b19e2b4cf50fe8553a771f41171d42be87c214f3d5f9927d2f4"
     },
     "app/src/converter/annunciator.py": {
       "bytes": 5231,
@@ -386,7 +388,7 @@
     },
     "app/src/converter/core.py": {
       "bytes": 420534,
-      "sha256": "ade45d276a1927eb68328322bbfe28348411c807a7e481859aec7e26f244ca3f"
+      "sha256": "d2a013090dde1b3bd986bca47dc2f43b3acd140a70f05240810b29f4a41efa05"
     },
     "app/src/converter/device_relocation.py": {
       "bytes": 11108,
@@ -398,15 +400,19 @@
     },
     "app/src/converter/distribution.py": {
       "bytes": 200,
-      "sha256": "0fb194e4b12757edf229e9fc319a2582a49c02a199abc6fdfd9d4963b45598dc"
+      "sha256": "f045f5b568be95965c77144afa9930f921a34f21e22e7f60723893ef4d49bcee"
     },
     "app/src/converter/forward_analysis.py": {
       "bytes": 4407,
       "sha256": "34b9a2f4cb6983a4a7c9deb501dda84140a737720c82c79ea80e4fff20d93ae2"
     },
     "app/src/converter/fx5_target.py": {
-      "bytes": 12839,
-      "sha256": "2f6c34f79e05c942370676198e321b4884a572151462101721cfb422143af126"
+      "bytes": 12841,
+      "sha256": "671ebec963685f7bb980b3418ff45498475314287d9dcb5e926b95b67c177f42"
+    },
+    "app/src/converter/gxw_diagnostics.py": {
+      "bytes": 35085,
+      "sha256": "2413e58c4026cbbc7526ddff97f5b7b879e58e84380f1497af0dfa30a5b67051"
     },
     "app/src/converter/kn_oracle.py": {
       "bytes": 143,
@@ -433,12 +439,12 @@
       "sha256": "4bddd3f542079bbef3fb75126a1f3b19820f294eb5eb3153eae65f24da1a67df"
     },
     "app/src/converter/q_to_fx5.py": {
-      "bytes": 88053,
-      "sha256": "3f731959079acb468a3a9f0a6dc08d4c6d389a26c81c24d4da08e6f9d4880a8c"
+      "bytes": 88146,
+      "sha256": "db420e8e4a1081060dc81131fb4bea639624be381b893770ca8fddcda15e8298"
     },
     "app/src/converter/resources/public-runtime/facts.json": {
       "bytes": 28595,
-      "sha256": "f1435205441072892f101a114d5090be71872722ac6bf445ddd5d1a04a40a0b6"
+      "sha256": "a56c9c9602f523ce83db3e3289ba5a1caca5c66c7da71cffa0fe3378a8cdd8c3"
     },
     "app/src/converter/resources/public-upstream/manifest.json": {
       "bytes": 1441,
@@ -472,13 +478,41 @@
       "bytes": 1175,
       "sha256": "963462fea0efe4fb6bffd5618eeef4e046ebed6c90d49e82128fa9bf7fd38689"
     },
+    "app/src/converter/resources/readonly-analysis/LICENSE": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "app/src/converter/resources/readonly-analysis/NOTICE": {
+      "bytes": 407,
+      "sha256": "6e04b4f720dabdbc1c7fa7cdd9da8fec0558fd77b606f1bd27ed10477a6c86e8"
+    },
+    "app/src/converter/resources/readonly-analysis/README.md": {
+      "bytes": 2297,
+      "sha256": "1589c0c2a608320cf70957eb34465a5a7d8f6f2d8fd65afa3897905dcfae6210"
+    },
+    "app/src/converter/resources/readonly-analysis/THIRD_PARTY_NOTICES.md": {
+      "bytes": 1175,
+      "sha256": "963462fea0efe4fb6bffd5618eeef4e046ebed6c90d49e82128fa9bf7fd38689"
+    },
+    "app/src/converter/resources/readonly-analysis/device-references-v1.schema.json": {
+      "bytes": 25962,
+      "sha256": "89313bb5ff0509ebbe8f7c21ee4e0d7c0179dbc7d25540069aec077a8f5a373f"
+    },
+    "app/src/converter/resources/readonly-analysis/gx_project_toolkit_readonly-0.1.0-py3-none-any.whl": {
+      "bytes": 85148,
+      "sha256": "a2932105e29a30371e472ba33860dfef7d72f71ba86d6b315a4a682a8c2f6e06"
+    },
+    "app/src/converter/resources/readonly-analysis/provenance.json": {
+      "bytes": 5506,
+      "sha256": "17f00a6a9b0a7411b3cdab886cf76649900df9deec6b2ba3cb12adff305ab42e"
+    },
     "app/src/converter/resources/statement-format-widths.json": {
       "bytes": 24971,
       "sha256": "76534fb6d8fd1dd371d432fdcaf06901cd85977d6bea539193beb8f659414bc9"
     },
     "app/src/converter/review_text.py": {
-      "bytes": 13231,
-      "sha256": "f9f4b1d2112f2194ca48357bf02506c2c1b2f4d24fac00e325bd168e709695d8"
+      "bytes": 13325,
+      "sha256": "4efd1cfe21d9ffc3a2838206db96000102a60a7da6056dda0c9a64f908bd1525"
     },
     "app/src/converter/runtime_facts.py": {
       "bytes": 1935,
@@ -505,8 +539,8 @@
       "sha256": "c09447f8fe0755304960624f869020a5c5dce224a1dfa97541282fe13460fb9c"
     },
     "app/src/converter/text_conversion.py": {
-      "bytes": 87233,
-      "sha256": "458f72683a37824e357c846398857f44da199cd6a640268965cc839a5e122c20"
+      "bytes": 87239,
+      "sha256": "238a56a84950c2a41a83a471d87129f6567875564053d57e3a498df29eafa682"
     },
     "app/src/converter/upstream_contracts.py": {
       "bytes": 6898,
@@ -528,9 +562,17 @@
       "bytes": 12620,
       "sha256": "eb274f0cd03912ab6650956535d4400f9e0d79d82743bfb47fb42ff8cf9d7d4d"
     },
+    "app/tests/test_display_text.py": {
+      "bytes": 1538,
+      "sha256": "395b3880a0b003e70637382103855b656bad87942623eb846737b79b5742ceee"
+    },
+    "app/tests/test_grouped_span_contract.py": {
+      "bytes": 5314,
+      "sha256": "67dc014600d37f8b7883c2f4c8cdceabd7058f2bf04f0b040225013afd6071ad"
+    },
     "app/tests/test_qt_analysis_errors.py": {
-      "bytes": 12391,
-      "sha256": "adbeb4a069cf5f9f4a8d0c4a2e16a62392a91372362e26ee40ff7ffa026e0c57"
+      "bytes": 14513,
+      "sha256": "93b378e0df08ce0595f65c257adaf3a729464ffc7fc732f31c3e4001715f92e6"
     },
     "app/tests/test_qt_update.py": {
       "bytes": 4956,
@@ -554,7 +596,25 @@
     }
   },
   "private_evidence_included": false,
-  "runtime_facts_sha256": "f1435205441072892f101a114d5090be71872722ac6bf445ddd5d1a04a40a0b6",
   "site_profiles_included": false,
-  "version": "2.2.65"
+  "runtime_facts_sha256": "a56c9c9602f523ce83db3e3289ba5a1caca5c66c7da71cffa0fe3378a8cdd8c3",
+  "release_package": {
+    "name": "Q-FX-Converter-v2.2.66.zip",
+    "sha256": "f7748bffaa55ed91c235e8b8c1265857980bcebbaacfed6110b8391073b01b40",
+    "bytes": 43335861
+  },
+  "package_source_binding": {
+    "published_app_files_identical": 141,
+    "build_only_acceptance_tests_omitted": [
+      "tests/test_current_input_safety.py",
+      "tests/test_current_ui_copy_contract.py",
+      "tests/test_generated_source_contract.py",
+      "tests/test_gxw_diagnostics.py",
+      "tests/test_official_source_alternatives.py",
+      "tests/test_packaging_contract.py",
+      "tests/test_reader_shadow.py"
+    ],
+    "runtime_and_build_files_identical": true,
+    "omission_reason": "private harness or retained native acceptance fixtures; not runtime/build inputs"
+  }
 }

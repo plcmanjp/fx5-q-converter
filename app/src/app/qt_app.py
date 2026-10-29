@@ -153,6 +153,7 @@ class Workspace(QMainWindow):
         self.busy = False
         self.operation_error = None
         self.operation_error_detail = ""
+        self.operation_error_message = ""
         self.error_popup_request = None
         self.auto_prepare_pending = False
         self.futures = []
@@ -220,7 +221,7 @@ class Workspace(QMainWindow):
         self.workflow_tabs.setCornerWidget(self.update_button, Qt.Corner.TopRightCorner)
         self.workflow_tabs.setAccessibleName("변환 작업 3단계")
         self.pages = []
-        for title in ("1 파일 등록", "2 주소·규칙", "3 결과"):
+        for title in ("1 파일 등록", "2 주소 규칙", "3 결과"):
             page = QWidget()
             page_layout = QVBoxLayout(page)
             page_layout.setContentsMargins(6, 6, 6, 6)
@@ -466,7 +467,7 @@ class Workspace(QMainWindow):
         self.guide_button = QPushButton("GX 안내 보기")
         for button in (self.inspect_all, self.open_result, self.guide_button):
             result_actions.addWidget(button)
-        self.mapping_back = QPushButton("주소·규칙으로 돌아가기")
+        self.mapping_back = QPushButton("주소 규칙으로 돌아가기")
         self.mapping_back.clicked.connect(lambda: self.workflow_tabs.setCurrentIndex(1))
         result_actions.addWidget(self.mapping_back)
         result_layout.addLayout(result_actions)
@@ -801,8 +802,11 @@ class Workspace(QMainWindow):
         guidance = generation_guidance(result, idle=idle, dirty=self.mapping_dirty and not review,
             q_cpu=self.actual_q_cpu.currentText(), pending_input=self.editor_pending() and not review,
             source_selected=bool(self.path.text().strip()))
-        self.generation_notice.setText(self.operation_error or guidance)
-        self.generation_notice.setToolTip(self.generation_notice.text())
+        self.generation_notice.setText(self.operation_notice() or guidance)
+        if self.operation_error_message and self.operation_error_detail:
+            self.generation_notice.setToolTip(self.operation_error_detail)
+        else:
+            self.generation_notice.setToolTip(self.generation_notice.text())
         self.status.setToolTip(self.status.text())
         self.problem_summary.setToolTip(self.problem_summary.text())
         completed = bool(result and result.get("file_generation") == "GENERATED" and result.get("output_dir"))
@@ -815,7 +819,7 @@ class Workspace(QMainWindow):
             self.generate.setEnabled(bool(self.path.text().strip()) and not self.busy and not self.futures and not self.closing)
             return
         if not result or stage != 1:
-            self.generate.setText("주소·규칙으로 이동" if result else "원본을 선택하세요" if not self.path.text().strip() else "변환 준비 중")
+            self.generate.setText("주소 규칙으로 이동" if result else "원본을 선택하세요" if not self.path.text().strip() else "변환 준비 중")
             self.generate.setEnabled(bool(result) and idle)
             return
         if self.mode.currentData() == "convert" and (
@@ -1086,9 +1090,21 @@ class Workspace(QMainWindow):
             self.path.setText(urls[0].toLocalFile())
             event.acceptProposedAction()
 
+    def operation_notice(self):
+        """Keep a bounded original message and the next action in the banner."""
+        summary = self.operation_error
+        message = getattr(self, "operation_error_message", "") or ""
+        if not summary or not str(message).strip():
+            return summary
+        flat = " ".join(str(message).split())
+        if len(flat) > 180:
+            flat = flat[:180].rstrip() + "..."
+        return f"{summary} 오류 원문: {flat} 오류 상세를 확인한 뒤 분석 다시 시도하세요."
+
     def identity(self):
         self.operation_error = None
         self.operation_error_detail = ""
+        self.operation_error_message = ""
         self.error_popup_request = None
         self.error_details.hide()
         self.error_dialog.hide()
@@ -1235,6 +1251,8 @@ class Workspace(QMainWindow):
 
     def set_operation_error(self, summary, error):
         self.operation_error = summary
+        raw = error.get("message", "") if isinstance(error, dict) else ""
+        self.operation_error_message = "" if raw is None else str(raw)
         lines = [summary, "", "오류 코드: " + str(error.get("code", "")),
                  "오류 원문:", str(error.get("message", ""))]
         for index, diagnostic in enumerate(error.get("diagnostics", []), 1):
@@ -1331,6 +1349,7 @@ class Workspace(QMainWindow):
                     self.set_operation_error(event["label"], event.get("error", {}))
                 else:
                     self.operation_error = self.status.text()
+                    self.operation_error_message = ""
                 if cancelled_now:
                     # Drop a rule saved during the cancelled check. Do not start it afterwards.
                     self.rule_check.stop()
@@ -1410,7 +1429,7 @@ class Workspace(QMainWindow):
         generation = result.get("file_generation", "NOT_GENERATED")
         self.generation_state.setText({"GENERATED": "생성 완료", "FAILED": "실패", "CANCELLED": "취소됨"}.get(generation, "미생성"))
         self.stages.setText("결과 생성 완료. GX 확인과 실제 장비 검증은 별도 수행합니다." if generation == "GENERATED"
-                            else "보류 문제를 주소·규칙에서 수정하세요." if result.get("status") == "HOLD"
+                            else "보류 문제를 주소 규칙에서 수정하세요." if result.get("status") == "HOLD"
                             else "주소 규칙을 확인한 뒤 변환하세요.")
         self.ensure_mapping_editor(result)
         cpu = result.get("actual_target_cpu") or (self.actual_q_cpu.currentText().strip() if result["direction"] == "FX5_TO_Q" else self.cpu.currentText())
@@ -1523,6 +1542,7 @@ class Workspace(QMainWindow):
     def adapt_display(self):
         if getattr(self, "address_dialog", None) is not None:
             self.address_dialog.set_compact(self.height() < 940)
+            self.address_dialog.fit_preview_tables()
         if not hasattr(self, "context"):
             return
         compact_chrome = self.height() < 620

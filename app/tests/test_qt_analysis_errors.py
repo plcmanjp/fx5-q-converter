@@ -185,6 +185,7 @@ class FailurePresentationTests(unittest.TestCase):
         self.window.identity()
         self.assertIsNone(self.window.operation_error)
         self.assertFalse(self.window.operation_error_detail)
+        self.assertFalse(self.window.operation_error_message)
         self.assertTrue(self.window.error_details.isHidden())
         self.assertFalse(self.window.error_dialog.isVisible())
         self.assertFalse(self.window.error_text.toPlainText())
@@ -209,6 +210,38 @@ class FailurePresentationTests(unittest.TestCase):
         self.window.poll()
         self.assertTrue(self.window.error_dialog.isVisible())
         self.assertIn("current synthetic snapshot\noriginal detail", self.window.error_text.toPlainText())
+        self.assertIn("current synthetic snapshot", self.window.generation_notice.text())
+        self.assertIn("오류 상세를 확인한 뒤 분석 다시 시도하세요.", self.window.generation_notice.text())
+
+    def test_banner_keeps_bounded_original_and_next_action(self):
+        self.feed()
+        banner = self.window.generation_notice.text()
+        self.assertIn("분석에 실패했습니다. 오류 상세를 확인하세요.", banner)
+        self.assertIn("오류 원문: 한글 <raw> long detail", banner)
+        self.assertIn("오류 상세를 확인한 뒤 분석 다시 시도하세요.", banner)
+        self.assertNotIn("long detail " * 300, banner)
+        self.assertLess(len(banner), 400)
+        self.assertIn("한글 <raw>\n" + "long detail " * 300, self.window.operation_error_detail)
+
+    def test_short_original_stays_in_the_banner_and_cancel_drops_it(self):
+        self.window.set_operation_error("분석 실패", {"code": "ZIP", "message": "File is not a zip file"})
+        self.window.refresh_primary()
+        banner = self.window.generation_notice.text()
+        self.assertIn("File is not a zip file", banner)
+        self.assertIn("오류 상세를 확인한 뒤 분석 다시 시도하세요.", banner)
+        self.assertEqual("분석 다시 시도", self.window.generate.text())
+        self.assertIn("File is not a zip file", self.window.operation_error_detail)
+        state = {"generation": 3, "request_id": "current", "version": 4, "busy": False, "result": None,
+                 "events": [{"phase": "CANCELLED", "label": "취소되었습니다. 입력은 유지됩니다."}]}
+        future = Future()
+        future.set_result(state)
+        self.window.snapshot_future = future
+        self.window.version = 0
+        self.window.poll()
+        self.app.processEvents()
+        self.assertIn("취소되었습니다", self.window.generation_notice.text())
+        self.assertNotIn("File is not a zip file", self.window.generation_notice.text())
+        self.assertFalse(self.window.operation_error_message)
 
 
 if __name__ == "__main__":

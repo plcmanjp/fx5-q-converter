@@ -2,6 +2,8 @@
 
 Windows x64와 Python 3.12.13을 사용합니다. 새 checkout과 새 가상환경에서 다음 명령을 실행합니다.
 
+이 비공개 workspace에서는 저장소 루트에서 `Set-Location 'project/src'`로 이동한 뒤 실행합니다. 아래의 `app/` 상대 경로는 이 디렉터리를 기준으로 합니다.
+
 UI 패키지는 `app`, 변환 패키지는 `converter`입니다. Python import, 모듈 실행과 PyInstaller 리소스 경로는 이 이름을 사용합니다. 이전 파일의 JSON 스키마 식별자, 로컬 설정 저장소 키와 해시로 고정된 검증 리소스의 원문은 기존 설정과 근거의 호환성을 위해 유지합니다.
 
 ```powershell

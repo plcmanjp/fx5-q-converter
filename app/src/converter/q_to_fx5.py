@@ -924,7 +924,8 @@ def _validated_pou_text(rows: list[tuple[str, str, str]], body: bytes, comments:
         if (ended or not isinstance(raw, str) or not raw or raw.startswith("*")
                 or any(not (ord(char) >= 0x20 and ord(char) != 0x7F if framed_text else
                             0x20 <= ord(char) <= 0x7E
-                            or (opcode == "__STMT__" and char == "\u2014")) for char in raw)):
+                            # Source statement punctuation is preserved as external text.
+                            or (opcode == "__STMT__" and ord(char) == 0x2014)) for char in raw)):
             raise ReverseConversionError(code, pou, pou=pou, source_locator=locator)
         if opcode == "__STMT__":
             result[index] = ("statement", raw)

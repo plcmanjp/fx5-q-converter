@@ -5,6 +5,7 @@ MIT는 자체 작성 앱 코드와 문서에 적용합니다. 아래 구성요�
 | 구성요소 | 적용 조건과 위치 |
 |---|---|
 | GX RE Toolkit의 Q/FX5 reader | Apache-2.0. 포함된 wheel의 LICENSE, NOTICE와 `app/src/converter/resources/q-reader/`의 고지를 유지합니다. |
+| GX Project Toolkit read-only 0.1.0 보조 분석 | Apache-2.0. `app/src/converter/resources/readonly-analysis/`의 wheel, LICENSE, NOTICE, THIRD_PARTY_NOTICES.md와 provenance.json을 유지합니다. 기존 변환 reader와 별도 실행하며 원문 판독이나 생성 승인 범위를 확대하지 않습니다. |
 | Qt 6.11.2의 Core/Gui/Widgets 및 함께 배포된 LGPL 모듈 | LGPL-3.0. 라이선스 원문은 `app/packaging/third-party/qtbase/`, 바이너리 배포는 `THIRD-PARTY-LICENSES/`에 있습니다. |
 | PySide6-Essentials 및 shiboken6 6.11.2 | LGPL-3.0과 포함된 제3자 고지. `app/packaging/third-party/pyside/` 및 설치 배포판의 라이선스를 동봉합니다. |
 | Python 3.12.13 | PSF와 포함 구성요소의 고지. 바이너리의 `THIRD-PARTY-LICENSES/python-LICENSE.txt`를 확인하세요. |

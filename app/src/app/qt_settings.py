@@ -435,6 +435,7 @@ class AddressDialog(RuleEditorMixin, QDialog):
         self.policy.activated.connect(self.edited)
         if not embedded:
             self.set_compact(True)
+        self.tabs.currentChanged.connect(self.fit_preview_tables)
         self.update_xy_empty_state()
 
     def set_compact(self, compact):
@@ -463,7 +464,12 @@ class AddressDialog(RuleEditorMixin, QDialog):
         if hasattr(self, "module_note"):
             self.module_note.setVisible(not self.compact)
         if hasattr(self, "policy_hint"):
-            self.policy_hint.setMaximumHeight(32 if self.compact else 16777215)
+            if self.compact:
+                self.policy_hint.setWordWrap(False)
+                self.policy_hint.setMaximumHeight(self.policy_hint.fontMetrics().lineSpacing() + 2)
+            else:
+                self.policy_hint.setWordWrap(True)
+                self.policy_hint.setMaximumHeight(16777215)
         margin = 0 if self.compact else 4
         root = self.layout()
         if root is not None:
@@ -474,7 +480,61 @@ class AddressDialog(RuleEditorMixin, QDialog):
                 for widget in (splitter.widget(0), page, splitter.parentWidget()):
                     if widget is not None and widget.layout() is not None:
                         widget.layout().setContentsMargins(margin, margin, margin, margin)
-                        widget.layout().setSpacing(2 if self.compact else 4)
+                        spacing = 2 if self.compact else 4
+                        if self.compact and widget is splitter.widget(0):
+                            spacing = 0
+                        widget.layout().setSpacing(spacing)
+
+    def _preview_row_floor(self, table, *, include_scrollbar):
+        table.ensurePolished()
+        bar = table.horizontalScrollBar().sizeHint().height() if include_scrollbar else 0
+        return (table.horizontalHeader().sizeHint().height()
+                + 5 * table.verticalHeader().defaultSectionSize()
+                + bar + 2 * table.frameWidth())
+
+    def fit_preview_tables(self):
+        """Keep preview tables inside their parent without lowering the clipping check.
+
+        Compact pages first drop an unused horizontal-scrollbar reservation.
+        A remaining overflow lowers only that table's minimum. No maximum is set,
+        so a later taller window can grow the table again.
+        """
+        if not hasattr(self, "preview_table"):
+            return
+        for table in (self.preview_table, self.module_preview):
+            parent = table.parentWidget()
+            if parent is None or not table.isVisible() or parent.height() < 40:
+                continue
+            preferred = self._preview_row_floor(table, include_scrollbar=True)
+            self._activate_preview(parent)
+
+            def overflow():
+                return table.mapTo(parent, table.rect().bottomRight()).y() - parent.rect().bottom()
+
+            extra = overflow()
+            if extra <= 0:
+                room = parent.rect().bottom() - table.mapTo(parent, table.rect().bottomRight()).y()
+                if table.minimumHeight() < preferred and room >= preferred - table.minimumHeight():
+                    table.setMinimumHeight(preferred)
+                    self._activate_preview(parent)
+                continue
+            if not table.horizontalScrollBar().isVisible():
+                floor = self._preview_row_floor(table, include_scrollbar=False)
+                if table.minimumHeight() > floor:
+                    table.setMinimumHeight(floor)
+                    self._activate_preview(parent)
+                    extra = overflow()
+            if extra > 0:
+                table.setMinimumHeight(max(1, table.minimumHeight() - extra))
+                self._activate_preview(parent)
+
+    def _activate_preview(self, parent):
+        layout = parent.layout()
+        if layout is not None:
+            layout.activate()
+        host = parent.parentWidget()
+        if host is not None and host.layout() is not None:
+            host.layout().activate()
 
     def restore_editor_status(self):
         self.status_layout.insertWidget(self.status_layout.indexOf(self.tabs) + 1, self.status)
@@ -625,6 +685,7 @@ class AddressDialog(RuleEditorMixin, QDialog):
             for column, key in enumerate(("source", "initial", "target", "reason")):
                 self.module_preview.setItem(index, column, QTableWidgetItem(str(row[key])))
         self.module_preview.resizeColumnsToContents()
+        self.fit_preview_tables()
 
     def refresh_usage_preview(self):
         self.clear_source_selection()
@@ -687,6 +748,7 @@ class AddressDialog(RuleEditorMixin, QDialog):
 
     def showEvent(self, event):
         super().showEvent(event)
+        self.fit_preview_tables()
         if self.preview_pending and self.preview_cancelled.is_set():
             self.refresh_usage_preview()
 
@@ -735,6 +797,7 @@ class AddressDialog(RuleEditorMixin, QDialog):
                 self.preview_table.setItem(index, column, item)
         self.preview_table.resizeColumnsToContents()
         self.highlight_source_selection()
+        self.fit_preview_tables()
 
     def refresh(self, *, notify_edit=True):
         if notify_edit:

@@ -812,7 +812,7 @@ def plan_text_conversion(source: Path, *, project_identifier: str, direction: st
                                             "target_opcode": "OUT", "target_operands": [device],
                                             "reason": f'동일 POU에 OUT {device}가 {len(positions)}개 있습니다. '
                                                       'GX Works2 Check Program에서 C9300 중복 코일 오류가 발생할 수 있습니다. '
-                                                      '중복 출력은 그대로 변환하며 변환·발행을 보류하지 않습니다. 정상 여부는 사용자가 판단합니다.'})
+                                                      '중복 출력은 그대로 변환하며 변환과 발행을 보류하지 않습니다. 정상 여부는 사용자가 판단합니다.'})
                 st_operands = {row[3] for row in emitted_rows[3:] if len(row) >= 4
                                and re.match(r"@?ST[0-9]", row[3], re.I)}
                 if st_operands:
@@ -848,7 +848,7 @@ def plan_text_conversion(source: Path, *, project_identifier: str, direction: st
                                             "target_opcode": "OUT", "target_operands": ["SM1255"],
                                             "reason": f'승인된 OUT SM1255 폴백 {approved_count}개(발행 CSV OUT SM1255 {len(positions)}개). '
                                                       'GX Works2 Check Program에서 C9300 중복 코일 오류가 발생할 수 있습니다. '
-                                                      '중복 자체는 변환·발행을 보류하지 않으며 정상 여부는 사용자가 판단합니다. '
+                                                      '중복 자체는 변환과 발행을 보류하지 않으며 정상 여부는 사용자가 판단합니다. '
                                                       '미지원 원문 기능에 대한 폴백 검토 상태는 별도로 유지합니다.'})
         program_roles = {}
         for program in inventory:
@@ -919,7 +919,7 @@ def plan_text_conversion(source: Path, *, project_identifier: str, direction: st
                 outputs[import_check["guide_file"]] += (
                     'FX5 검토용 폴백은 SM4095/SD4095를 사용합니다. Q 검토용 SM1255/SD1255와 구분하세요.\n'
                     'IMPORT_REVIEW_CSV는 원래 모듈 기능을 수행하지 않습니다. REVIEW_ONLY / DO_NOT_DOWNLOAD_OR_RUN.\n'
-                    '미지원 원문과 치환 사유는 POU TXT·원장·FX5-import-review.tsv에 보존합니다. '
+                    '미지원 원문과 치환 사유는 POU TXT, 원장, FX5-import-review.tsv에 보존합니다. '
                     'BLOCKED 원문이 남은 혼합 CSV는 SOURCE_REVIEW_ONLY이며 가져오기 후보가 아닙니다.\n'
                     'indexed 전체 명령 대체는 실제 인덱스/장치 계산을 수행하지 않습니다. '
                     '모듈 구성과 버퍼 기능을 구현한 뒤 더미를 대체하세요.\n'
@@ -943,7 +943,7 @@ def plan_text_conversion(source: Path, *, project_identifier: str, direction: st
                     'Tool > Language Selection > Project Language를 Korean으로 설정하세요. '
                     'Project Language는 화면 UI 언어와 별개입니다. '
                     'English 프로젝트에서는 한글이 ?로 손실될 수 있으므로 설정 후 가져오고, '
-                    '저장·재열기·공식 Export에서 원문이 유지되는지 확인하세요.\n'
+                    '저장, 재열기, 공식 Export에서 원문이 유지되는지 확인하세요.\n'
                     'SOURCE_REVIEW_ONLY 프로그램은 미지원 원문을 포함하므로 가져오기 후보가 아닙니다.\n'
                     'TYPED_MINING_REVIEW_ONLY는 타입 근거에 따른 마이닝 검토 자료입니다. '
                     '원본 의미 보류가 유지되며 가져오기 후보가 아닙니다. MINING_REVIEW_ONLY / DO_NOT_DOWNLOAD_OR_RUN.\n'
@@ -981,7 +981,7 @@ def plan_text_conversion(source: Path, *, project_identifier: str, direction: st
                             f'POU {detail["pou"]} ({detail["csv"]}): 승인된 OUT SM1255 폴백 '
                             f'{detail["approved_fallback_count"]}개, 발행 CSV OUT SM1255 {detail["emitted_out_count"]}개. '
                             'GX Works2 Check Program에서 C9300 중복 코일 오류가 발생할 수 있습니다. '
-                            '중복 자체는 변환·발행을 보류하지 않으며 정상 여부는 사용자가 판단합니다. '
+                            '중복 자체는 변환과 발행을 보류하지 않으며 정상 여부는 사용자가 판단합니다. '
                             '원문 폴백 명령의 기능을 대상 PLC에 맞게 구현한 뒤 더미를 대체해야 합니다. '
                             'REVIEW_ONLY / DO_NOT_DOWNLOAD_OR_RUN.\n'
                         ).encode("utf-8")

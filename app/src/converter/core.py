@@ -7025,7 +7025,7 @@ def partial_review_text(
         if not source:
             source = "프로그램 공통 문제"
         if "In Peripheral" in reason:
-            reason = "In Peripheral Note 유형 보존의 Q import·재저장·재export 검증 미완료"
+            reason = "In Peripheral Note 유형 보존의 Q import, 재저장, 재export 검증 미완료"
         elif reason.startswith("instruction was rejected by GX Works2"):
             reason = "Q06UDV 대상에서 지원되지 않는 명령"
         elif reason.startswith("operand was rejected by GX Works2"):

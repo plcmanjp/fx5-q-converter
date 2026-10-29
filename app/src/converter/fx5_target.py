@@ -72,7 +72,7 @@ def device_check(token: str, cpu: str, *, width: int = 1) -> dict[str, Any] | No
                 "reason": (f'{cpu}는 모듈 접근 장치를 지원하지 않습니다.' if maximum == 0 else
                            f'{cpu} 모듈 번호는 U1..U{maximum:X}(16진수)이며 {token}의 번호는 지원 밖입니다. '
                            '모듈 배치와 버퍼 의미를 추정하여 번호를 변경하지 않습니다.' if invalid else
-                           "번호 범위 안이어도 실제 모듈 구성·버퍼 의미는 미검증입니다.")}
+                           "번호 범위 안이어도 실제 모듈 구성과 버퍼 의미는 미검증입니다.")}
     if prefix := re.match(r"@?U([0-9A-F]+)\\G", token, re.I):
         unsupported = not 1 <= int(prefix[1], 16) <= _MODULE_NUMBER_MAX[cpu]
         return {"device": token, "family": "U", "code": "TARGET_MODULE_NUMBER_UNSUPPORTED" if unsupported else "TARGET_MODULE_SYNTAX_UNVERIFIED", "state": "BLOCKED",

@@ -30,6 +30,19 @@ Mitsubishi FX5 계열과 Q 계열 프로젝트의 래더 텍스트와 코멘트�
 
 ## 소스 실행과 빌드
 
+### Q 원본의 별도 보조 진단
+
+Q06UDV로 식별되는 GXW의 관측 주소, 명령 위치와 불완전한 접근 범위는 별도 JSON으로 조사할 수 있습니다. 이 기능은 변환 화면이나 생성 허용 여부를 바꾸지 않습니다. 결과는 항상 부분 관측이며 주소가 없다는 결과를 미사용으로 판단하면 안 됩니다. 코멘트 본문과 POU 이름은 가리고, 주소와 명령 및 위치 식별 정보는 보고서에 남깁니다. 코멘트 소유자와 Note 유형은 추정하지 않습니다.
+
+PowerShell에서 원본 SHA-256을 확인한 뒤 새 보고서 경로를 지정합니다. 기존 보고서는 덮어쓰지 않습니다.
+
+```powershell
+$digest = (Get-FileHash -LiteralPath 'C:\작업\원본.gxw' -Algorithm SHA256).Hash.ToLowerInvariant()
+& '.\Q-FX-Converter.exe' --gxw-diagnostics --source 'C:\작업\원본.gxw' --sha256 $digest --output 'C:\작업\새-보조진단.json'
+```
+
+소스 실행은 `python -m converter gxw-diagnostics` 뒤에 같은 인자를 사용합니다. 입력 한도는 16 MiB이며 다른 CPU, 미해독, 시간 또는 크기 제한은 `NOT_ANALYZED`와 사유로 남깁니다. 이 보고서는 완전 원문, 실제 CPU 검증이나 GX 수락을 대신하지 않습니다. 기존 변환 reader는 그대로 사용합니다.
+
 [빌드 안내](BUILD.md)를 따릅니다. 배포 소스만으로 실행 및 빌드할 수 있으며 비공개 저장소나 현장 원본을 요구하지 않습니다. 공개 parser는 검증된 고정 wheel을 포함하고 네트워크 최신판으로 자동 교체하지 않습니다.
 
 ## 라이선스

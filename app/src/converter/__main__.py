@@ -1,5 +1,10 @@
 import sys
 
+if len(sys.argv) > 1 and sys.argv[1] == "gxw-diagnostics":
+    from .gxw_diagnostics import cli_main
+
+    raise SystemExit(cli_main(sys.argv[2:]))
+
 if len(sys.argv) > 1 and sys.argv[1] == "text-convert":
     from .text_conversion import main
 

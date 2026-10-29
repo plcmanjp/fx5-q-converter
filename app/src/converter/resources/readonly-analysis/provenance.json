@@ -1,0 +1,125 @@
+{
+  "audit_checked": 85,
+  "audit_status": "PASS",
+  "build_python": "3.12.13",
+  "builder_source_sha256": "0c75e0b6141f10beb6cbf498cb0fa3468a1777bcb328ac4a045d25d9bdd3de57",
+  "candidate_git_commit": "c883edaeb3cdab5066ba3fefa2b4a8857f5d0443",
+  "conversion_authority": "NONE",
+  "dependencies": {
+    "olefile": "0.47",
+    "pywin32_declared": ">=305; sys_platform == win32"
+  },
+  "engine_contract": "MASKED_PARTIAL_OBSERVATIONS_ONLY",
+  "entries": {
+    "gx_project_toolkit_readonly-0.1.0.data/data/share/gx-project-toolkit/device-references-v1.schema.json": {
+      "bytes": 25962,
+      "sha256": "89313bb5ff0509ebbe8f7c21ee4e0d7c0179dbc7d25540069aec077a8f5a373f"
+    },
+    "gx_project_toolkit_readonly-0.1.0.dist-info/METADATA": {
+      "bytes": 465,
+      "sha256": "aa7d52bed856bb006f289e9fba8e1c0ffd82e9c3b4cb1ecd02cf1be4ab7e061b"
+    },
+    "gx_project_toolkit_readonly-0.1.0.dist-info/RECORD": {
+      "bytes": 1866,
+      "sha256": "b42d352cc3c37254601e831b82ca75bda80407db4e706fe7e9122902a294739b"
+    },
+    "gx_project_toolkit_readonly-0.1.0.dist-info/WHEEL": {
+      "bytes": 91,
+      "sha256": "98e75747d0b7c0c568bfb71263c3d8f970b3a374a6996087bc642be5cb09a1aa"
+    },
+    "gx_project_toolkit_readonly-0.1.0.dist-info/entry_points.txt": {
+      "bytes": 218,
+      "sha256": "481d4efdfbf513a11d96e95299582a93e929e61b117e278192411abc3bcb9785"
+    },
+    "gx_project_toolkit_readonly-0.1.0.dist-info/licenses/LICENSE": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "gx_project_toolkit_readonly-0.1.0.dist-info/licenses/NOTICE": {
+      "bytes": 407,
+      "sha256": "6e04b4f720dabdbc1c7fa7cdd9da8fec0558fd77b606f1bd27ed10477a6c86e8"
+    },
+    "gx_project_toolkit_readonly-0.1.0.dist-info/licenses/THIRD_PARTY_NOTICES.md": {
+      "bytes": 1175,
+      "sha256": "963462fea0efe4fb6bffd5618eeef4e046ebed6c90d49e82128fa9bf7fd38689"
+    },
+    "gx_project_toolkit_readonly-0.1.0.dist-info/top_level.txt": {
+      "bytes": 194,
+      "sha256": "16e699a456197a98b97340b2fb6147ef52e27826e2a4387d93effe68d542626c"
+    },
+    "gxw_analysis_mcp.py": {
+      "bytes": 5942,
+      "sha256": "8715ffd0907405aeb3d6976fb22303f0c5a8db498b8dd059e738de16420dc15c"
+    },
+    "gxw_analysis_service.py": {
+      "bytes": 31572,
+      "sha256": "a431f2a793e9320b0b846ed854bcd8baa1c93b7c94647f1ba115882070c460c3"
+    },
+    "gxw_analysis_worker.py": {
+      "bytes": 1133,
+      "sha256": "25827497b78476a8bee9fb5943df1c5438d3118922a519e6b04738d9abe7dfe2"
+    },
+    "gxw_bounded_ole.py": {
+      "bytes": 2480,
+      "sha256": "fd157b9f0fa0bc11455f8f23149be8a86cc7328b17f7c10250c44b2c192e6031"
+    },
+    "gxw_bounded_xml.py": {
+      "bytes": 1598,
+      "sha256": "48ad31bbce60c617ece2d2f24bffe511d47a3b9ef6d260214f784c979981b423"
+    },
+    "gxw_ladder_reader.py": {
+      "bytes": 98743,
+      "sha256": "aabd24a9021714666f456d083aaeefaecd781d553e1a3fecb8856709ccb6d3a0"
+    },
+    "gxw_parameter_reader.py": {
+      "bytes": 3214,
+      "sha256": "5e515607b2896c2d298d93b783e3fca5cb2684ca2fc25ada76de12f8f3a1eabb"
+    },
+    "gxw_pou_devmap.py": {
+      "bytes": 6761,
+      "sha256": "2f6e51e1f9beb73f8be5885c6afd3c165147c482df36ae7542cfe7661b4749e1"
+    },
+    "gxw_project_analysis.py": {
+      "bytes": 46495,
+      "sha256": "64020adc4ce8253ee4e933095e4a2cfab6e7e34457c3ecbeb5bb2024f957de7c"
+    },
+    "gxw_read_v1.py": {
+      "bytes": 30132,
+      "sha256": "e70591effc028f95caf10b7c43bd4270379cc9e99bf1deb51d94458d9191b9af"
+    },
+    "gxw_reference_ir.py": {
+      "bytes": 26859,
+      "sha256": "41a3d9372ef610f0de86d411c4560e0eaeb2034074a436c3e38e011ef9bf6092"
+    }
+  },
+  "historical_artifact_reused": false,
+  "historical_artifact_sha256": "f5f4d07502da41b1ced3e6319101708836770e0ba74700c7ab97611ccc7bd94e",
+  "installed_module_origins": 11,
+  "license": "Apache-2.0",
+  "modules": {
+    "gxw_analysis_mcp": "8715ffd0907405aeb3d6976fb22303f0c5a8db498b8dd059e738de16420dc15c",
+    "gxw_analysis_service": "a431f2a793e9320b0b846ed854bcd8baa1c93b7c94647f1ba115882070c460c3",
+    "gxw_analysis_worker": "25827497b78476a8bee9fb5943df1c5438d3118922a519e6b04738d9abe7dfe2",
+    "gxw_bounded_ole": "fd157b9f0fa0bc11455f8f23149be8a86cc7328b17f7c10250c44b2c192e6031",
+    "gxw_bounded_xml": "48ad31bbce60c617ece2d2f24bffe511d47a3b9ef6d260214f784c979981b423",
+    "gxw_ladder_reader": "aabd24a9021714666f456d083aaeefaecd781d553e1a3fecb8856709ccb6d3a0",
+    "gxw_parameter_reader": "5e515607b2896c2d298d93b783e3fca5cb2684ca2fc25ada76de12f8f3a1eabb",
+    "gxw_pou_devmap": "2f6e51e1f9beb73f8be5885c6afd3c165147c482df36ae7542cfe7661b4749e1",
+    "gxw_project_analysis": "64020adc4ce8253ee4e933095e4a2cfab6e7e34457c3ecbeb5bb2024f957de7c",
+    "gxw_read_v1": "e70591effc028f95caf10b7c43bd4270379cc9e99bf1deb51d94458d9191b9af",
+    "gxw_reference_ir": "41a3d9372ef610f0de86d411c4560e0eaeb2034074a436c3e38e011ef9bf6092"
+  },
+  "package": "gx-project-toolkit-readonly",
+  "product_reader_pins_changed": false,
+  "schema": "qfx.readonly-analysis-package/1",
+  "source_commit": "bb6f6671557c8fee8063ee07534d59e5b75f052f",
+  "source_commit_binding": "ALL_11_RUNTIME_MODULE_BYTES_EQUAL",
+  "source_repository": "plcmanjp/106-gx-project-toolkit-dev",
+  "used_dependency": "olefile only; file capture uses Windows ctypes and msvcrt",
+  "version": "0.1.0",
+  "wheel": {
+    "bytes": 85148,
+    "name": "gx_project_toolkit_readonly-0.1.0-py3-none-any.whl",
+    "sha256": "a2932105e29a30371e472ba33860dfef7d72f71ba86d6b315a4a682a8c2f6e06"
+  }
+}

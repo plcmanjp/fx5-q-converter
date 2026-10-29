@@ -47,7 +47,8 @@ _STATUS_DESCRIPTIONS = {
     "TRUNCATED": "길이 제한에 맞춘 축약",
     "APPROVED_OVERRIDE": "승인된 대체 문구 적용",
 }
-_PROHIBITED_PUNCTUATION = frozenset("\u2014\u2013\u2015\u00b7\u30fb\u2022")
+# Policy code points classify text; they are not product display strings.
+_PROHIBITED_PUNCTUATION = frozenset(map(chr, (0x2014, 0x2013, 0x2015, 0x00B7, 0x30FB, 0x2022)))
 _CONTEXT_FIELDS = (
     ("source_operation", "원본 전체 명령"),
     ("source_note", "원본 Note"),

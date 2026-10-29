@@ -1,0 +1,969 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gx-project-toolkit:device-references:1",
+  "title": "디바이스 참조의 읽기 전용 관측 snapshot",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "gx-project-toolkit.device-references/1"
+    },
+    "profile": {
+      "const": "q06udv-simple-ladder-read-v1"
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "state": {
+      "const": "PARTIAL"
+    },
+    "complete_search": {
+      "const": false
+    },
+    "reference_state": {
+      "enum": [
+        "OBSERVED",
+        "NOT_ANALYZED"
+      ]
+    },
+    "unknown_instructions": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "enum": [
+            "OBSERVED",
+            "NOT_ANALYZED"
+          ]
+        },
+        "count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "reported_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "occurrences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pou": {
+                "type": "string"
+              },
+              "member": {
+                "type": "string"
+              },
+              "locator": {
+                "type": "object",
+                "properties": {
+                  "member": {
+                    "type": "string"
+                  },
+                  "pou": {
+                    "type": "string"
+                  },
+                  "row": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "member",
+                  "pou",
+                  "row"
+                ],
+                "additionalProperties": false
+              },
+              "opcode": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "pou",
+              "member",
+              "locator",
+              "opcode"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "state",
+        "count",
+        "reported_count",
+        "occurrences"
+      ],
+      "additionalProperties": false
+    },
+    "unresolved_edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          },
+          "member": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pou": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "locator": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "member": {
+                    "type": "string"
+                  },
+                  "pou": {
+                    "type": "string"
+                  },
+                  "row": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "member",
+                  "pou",
+                  "row"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "operand_position": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          }
+        },
+        "required": [
+          "reason",
+          "member",
+          "pou",
+          "locator",
+          "operand_position"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "devices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "device": {
+            "type": "string"
+          },
+          "family": {
+            "type": "string"
+          },
+          "address": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "display_radix": {
+            "enum": [
+              10,
+              16
+            ]
+          },
+          "module": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "word_bit": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "pou": {
+                  "type": "string"
+                },
+                "member": {
+                  "type": "string"
+                },
+                "locator": {
+                  "type": "object",
+                  "properties": {
+                    "member": {
+                      "type": "string"
+                    },
+                    "pou": {
+                      "type": "string"
+                    },
+                    "row": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "member",
+                    "pou",
+                    "row"
+                  ],
+                  "additionalProperties": false
+                },
+                "operand_position": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "access": {
+                  "enum": [
+                    "read",
+                    "write",
+                    "both",
+                    "unknown"
+                  ]
+                },
+                "access_basis": {
+                  "type": "string"
+                },
+                "coverage_state": {
+                  "type": "string"
+                },
+                "coverage_relation": {
+                  "enum": [
+                    "COVERED_ADDRESS",
+                    "BASE_ONLY"
+                  ]
+                },
+                "covered_offset": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "instruction_state": {
+                  "type": "string"
+                },
+                "opcode": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "pou",
+                "member",
+                "locator",
+                "operand_position",
+                "access",
+                "access_basis",
+                "coverage_state",
+                "coverage_relation",
+                "covered_offset",
+                "instruction_state",
+                "opcode"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "comments": {
+            "type": "object",
+            "properties": {
+              "device_comment_sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "member": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "record_count": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "minimum": 0
+                    },
+                    "reason": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "encoding": {
+                      "enum": [
+                        "utf-16le",
+                        "cp1252",
+                        "cp949",
+                        null
+                      ]
+                    },
+                    "encoding_state": {
+                      "const": "UNVERIFIED"
+                    },
+                    "ownership": {
+                      "const": "UNVERIFIED"
+                    },
+                    "owner": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "member",
+                    "state",
+                    "record_count",
+                    "reason",
+                    "encoding",
+                    "encoding_state",
+                    "ownership",
+                    "owner"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "device_comment_records": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "member": {
+                      "type": "string"
+                    },
+                    "sequence": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "device": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "text_sha256": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    "encoding": {
+                      "enum": [
+                        "utf-16le",
+                        "cp1252",
+                        "cp949",
+                        null
+                      ]
+                    },
+                    "ownership": {
+                      "const": "UNVERIFIED"
+                    },
+                    "owner": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "member",
+                    "sequence",
+                    "device",
+                    "state",
+                    "text",
+                    "text_sha256",
+                    "encoding",
+                    "ownership",
+                    "owner"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "reference_ir_comments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "pou": {
+                      "type": "string"
+                    },
+                    "member": {
+                      "type": "string"
+                    },
+                    "locator": {
+                      "type": "object",
+                      "properties": {
+                        "member": {
+                          "type": "string"
+                        },
+                        "pou": {
+                          "type": "string"
+                        },
+                        "row": {
+                          "type": "integer",
+                          "minimum": 0
+                        }
+                      },
+                      "required": [
+                        "member",
+                        "pou",
+                        "row"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "ownership": {
+                      "const": "UNVERIFIED"
+                    },
+                    "owner": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "pou",
+                    "member",
+                    "locator",
+                    "state",
+                    "text",
+                    "ownership",
+                    "owner"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "text_records": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "pou": {
+                      "type": "string"
+                    },
+                    "member": {
+                      "type": "string"
+                    },
+                    "sequence": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "kind": {
+                      "enum": [
+                        "statement",
+                        "note"
+                      ]
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "text_sha256": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    "hash_basis": {
+                      "type": "string"
+                    },
+                    "raw_type": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "subtype": {
+                      "enum": [
+                        "i",
+                        "s",
+                        null
+                      ]
+                    },
+                    "source_step_width": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "minimum": 0
+                    },
+                    "attachment": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "sequence": {
+                              "type": "integer",
+                              "minimum": 0
+                            },
+                            "opcode": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "sequence",
+                            "opcode"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "ownership": {
+                      "const": "UNVERIFIED"
+                    },
+                    "owner": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "pou",
+                    "member",
+                    "sequence",
+                    "kind",
+                    "state",
+                    "text",
+                    "text_sha256",
+                    "hash_basis",
+                    "raw_type",
+                    "subtype",
+                    "source_step_width",
+                    "attachment",
+                    "ownership",
+                    "owner"
+                  ],
+                  "additionalProperties": false,
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "kind": {
+                            "const": "note"
+                          }
+                        }
+                      },
+                      "then": {
+                        "properties": {
+                          "subtype": {
+                            "type": "null"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "device_comment_sources",
+              "device_comment_records",
+              "reference_ir_comments",
+              "text_records"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "device",
+          "family",
+          "address",
+          "display_radix",
+          "module",
+          "word_bit",
+          "references",
+          "comments"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "comments": {
+      "type": "object",
+      "properties": {
+        "device_comment_sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "record_count": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "encoding": {
+                "enum": [
+                  "utf-16le",
+                  "cp1252",
+                  "cp949",
+                  null
+                ]
+              },
+              "encoding_state": {
+                "const": "UNVERIFIED"
+              },
+              "ownership": {
+                "const": "UNVERIFIED"
+              },
+              "owner": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "member",
+              "state",
+              "record_count",
+              "reason",
+              "encoding",
+              "encoding_state",
+              "ownership",
+              "owner"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "device_comment_records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "member": {
+                "type": "string"
+              },
+              "sequence": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "device": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "state": {
+                "type": "string"
+              },
+              "text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "text_sha256": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "encoding": {
+                "enum": [
+                  "utf-16le",
+                  "cp1252",
+                  "cp949",
+                  null
+                ]
+              },
+              "ownership": {
+                "const": "UNVERIFIED"
+              },
+              "owner": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "member",
+              "sequence",
+              "device",
+              "state",
+              "text",
+              "text_sha256",
+              "encoding",
+              "ownership",
+              "owner"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "reference_ir_comments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pou": {
+                "type": "string"
+              },
+              "member": {
+                "type": "string"
+              },
+              "locator": {
+                "type": "object",
+                "properties": {
+                  "member": {
+                    "type": "string"
+                  },
+                  "pou": {
+                    "type": "string"
+                  },
+                  "row": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "member",
+                  "pou",
+                  "row"
+                ],
+                "additionalProperties": false
+              },
+              "state": {
+                "type": "string"
+              },
+              "text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ownership": {
+                "const": "UNVERIFIED"
+              },
+              "owner": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "pou",
+              "member",
+              "locator",
+              "state",
+              "text",
+              "ownership",
+              "owner"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "text_records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pou": {
+                "type": "string"
+              },
+              "member": {
+                "type": "string"
+              },
+              "sequence": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "kind": {
+                "enum": [
+                  "statement",
+                  "note"
+                ]
+              },
+              "state": {
+                "type": "string"
+              },
+              "text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "text_sha256": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "hash_basis": {
+                "type": "string"
+              },
+              "raw_type": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "subtype": {
+                "enum": [
+                  "i",
+                  "s",
+                  null
+                ]
+              },
+              "source_step_width": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "attachment": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "sequence": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "opcode": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "sequence",
+                      "opcode"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "ownership": {
+                "const": "UNVERIFIED"
+              },
+              "owner": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "pou",
+              "member",
+              "sequence",
+              "kind",
+              "state",
+              "text",
+              "text_sha256",
+              "hash_basis",
+              "raw_type",
+              "subtype",
+              "source_step_width",
+              "attachment",
+              "ownership",
+              "owner"
+            ],
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "kind": {
+                      "const": "note"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "subtype": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "device_comment_sources",
+        "device_comment_records",
+        "reference_ir_comments",
+        "text_records"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema",
+    "profile",
+    "source_sha256",
+    "state",
+    "complete_search",
+    "reference_state",
+    "unknown_instructions",
+    "unresolved_edges",
+    "devices",
+    "comments"
+  ],
+  "additionalProperties": false
+}

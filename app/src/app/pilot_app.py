@@ -75,7 +75,7 @@ TEXT = {
         "required_action": "필요 조치",
         "unsupported_warning_summary": (
             "경고: TARGET_UNSUPPORTED finding {count}건에 안전성이 입증된 진단 폴백이 없습니다. "
-            "해당 POU의 정상 Q CSV 발행을 중단하고 review-only로 보존했습니다. 다운로드·RUN하지 마십시오."
+            "해당 POU의 정상 Q CSV 발행을 중단하고 review-only로 보존했습니다. 다운로드하거나 RUN하지 마십시오."
         ),
         "unsupported_warning_withheld": (
             "경고: TARGET_UNSUPPORTED finding 중 {fallback_count}건은 DIAGNOSTIC_FALLBACK_UNAVAILABLE이며, "
@@ -83,11 +83,11 @@ TEXT = {
         ),
         "unsupported_warning_official": (
             "경고: TARGET_UNSUPPORTED finding {count}건을 미쓰비시 공식 dummy fallback으로 검토용 CSV에 발행했습니다. "
-            "정상 Q CSV는 발행하지 않습니다. 이 파일은 offline review-only이며 실행 동등 mapping이 아닙니다. A-PLC compatibility를 검증하고 다운로드·RUN하지 마십시오."
+            "정상 Q CSV는 발행하지 않습니다. 이 파일은 offline review-only이며 실행 동등 mapping이 아닙니다. A-PLC compatibility를 검증하고 다운로드하거나 RUN하지 마십시오."
         ),
         "unsupported_warning_official_withheld": (
             "경고: TARGET_UNSUPPORTED finding 중 {official_count}건은 공식 dummy fallback 검토용 CSV로 발행했고 "
-            "{withheld_count}건은 검토용 CSV도 발행하지 않았습니다. 정상 Q CSV는 모두 보류되며 다운로드·RUN하지 마십시오."
+            "{withheld_count}건은 검토용 CSV도 발행하지 않았습니다. 정상 Q CSV는 모두 보류되며 다운로드하거나 RUN하지 마십시오."
         ),
         "unsupported_warning_historical": (
             "경고: 과거 YFFFF 센티널 원장이 감지됐습니다. YFFFF는 GX Works2 Q06UDV에서 거부된 이력이며 "
@@ -126,9 +126,9 @@ TEXT = {
             "검토용 CSV {import_review}개, TXT만 생성 {ledger_only}개. "
             "검토 필요 {invalid}건. DO_NOT_DOWNLOAD_OR_RUN."
         ),
-        "action_q_mapping": "승인된 Q 명령·피연산자 치환과 전체 왕복 검증이 필요합니다.",
+        "action_q_mapping": "승인된 Q 명령 및 피연산자 치환과 전체 왕복 검증이 필요합니다.",
         "action_diagnostic_fallback_unavailable": "안전성과 무부작용이 입증된 쓰기 가능 진단 폴백이 없습니다. 정상 Q CSV는 발행하지 않으며 review-only 결과를 검토하십시오.",
-        "action_official_dummy_fallback": "공식 SM/SD dummy로 복구된 offline review CSV입니다. 원본 명령을 검토하고 A-PLC compatibility를 확인하며 다운로드·RUN하지 마십시오.",
+        "action_official_dummy_fallback": "공식 SM/SD dummy로 복구된 offline review CSV입니다. 원본 명령을 검토하고 A-PLC compatibility를 확인하며 다운로드하거나 RUN하지 마십시오.",
         "action_yffff_historical": "과거 YFFFF 센티널은 GX Works2 Q06UDV에서 거부됐습니다. 현재 결과로 승인하지 말고 재변환하십시오.",
         "action_unknown_fallback": "알 수 없는 fallback marker입니다. 결과를 사용하지 말고 현재 변환기로 재변환하십시오.",
         "action_source_rebuild": "원본을 보존하고 GX3 복제본을 GX Works3에서 연 뒤 Convert > Rebuild All을 실행하고 저장한 파일로 다시 변환하십시오.",
@@ -620,11 +620,11 @@ def format_output_paths(
     if published_only:
         mining_paths = tuple(path for path in mining_paths if path.is_file())
     mining_text = "\n".join(
-        f"마이닝 검토 CSV (MINING_REVIEW_ONLY, 다운로드·RUN 금지): {path}"
+        f"마이닝 검토 CSV (MINING_REVIEW_ONLY, 다운로드 및 RUN 금지): {path}"
         for path in mining_paths
     )
     if not mining_text:
-        mining_text = "마이닝 검토 CSV (MINING_REVIEW_ONLY, 다운로드·RUN 금지): 발행 없음"
+        mining_text = "마이닝 검토 CSV (MINING_REVIEW_ONLY, 다운로드 및 RUN 금지): 발행 없음"
 
     typed_mining_paths = outputs.typed_mining_reviews
     if published_only:
@@ -1053,10 +1053,10 @@ class CoreBackend:
             True,
             f"지원 범위 통과: {len(project.instructions)}행, 코멘트 {len(project.comments)}건, 프로그램 {project.program_name}",
             (
-                "파일 내부 관계와 구조 계약을 통과한 단일·복수 POU Ladder 지원",
+                "파일 내부 관계와 구조 계약을 통과한 단일 또는 복수 POU Ladder 지원",
                 f"GX Works2 CP949 32바이트 초과 코멘트 {truncated_comments}건은 안전하게 축약하고 원문 검토 CSV와 열람용 TXT에 보존",
                 "검증된 root DB의 모든 영어 표시 디바이스 코멘트를 함께 출력",
-                "파일명이 아니라 미해석 구조·명령·피연산자만 해당 범위에서 격리",
+                "파일명이 아니라 미해석 구조, 명령, 피연산자만 해당 범위에서 격리",
             ),
         )
 
